@@ -7,8 +7,6 @@
 //
 
 
-// The sounds in this demo project were taken from Fluid R3 by Frank Wen,
-// a freely distributable SoundFont.
 
 #import "MidiViewController.h"
 
