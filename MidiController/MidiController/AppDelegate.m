@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+//#include <sys/socket.h>
+//#include <netinet/in.h>
+//#include <CoreFoundation/CoreFoundation.h>
+
 @implementation AppDelegate
 
 - (CMMotionManager *)motionManager {
@@ -16,10 +20,39 @@
     return motionManager;
 }
 
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+    
+
+    
+    
     return YES;
+    
 }
+//- (BOOL)publishServer{
+//    service = [[NSNetService alloc] initWithDomain:@""
+//                                              type:@":MyService._tcp"
+//                                              name:@""
+//                                              port:port];
+//    
+//    [service scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+//    [service setDelegate:self];
+//    [service publish];
+//    return YES;
+//}
+//
+//
+//
+//-(void)netService:(NSNetService *)aNetService didNotPublish:(NSDictionary *)dict {
+//    NSLog(@"Service did not publish: %@", dict);
+//}
+//
+//-(void)netServiceWillPublish:(NSNetService *)netService;{
+//    printf("done");
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -31,11 +64,13 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    //[service stop];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    //[service publish];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -46,6 +81,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    //[service stop];
 }
 
 @end

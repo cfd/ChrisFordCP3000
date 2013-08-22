@@ -7,19 +7,15 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <CoreMIDI/CoreMIDI.h>
 
 
 
 @interface MidiViewController : UIViewController{
-//    MIDINetworkConnection* midiConnection;
+
 }
-- (IBAction)lowCPressed:(id)sender;
-- (IBAction)DPressed:(id)sender;
-- (IBAction)EPressed:(id)sender;
-- (IBAction)FPressed:(id)sender;
-- (IBAction)GPressed:(id)sender;
-- (IBAction)APressed:(id)sender;
-- (IBAction)BPressed:(id)sender;
-- (IBAction)highCPressed:(id)sender;
+
+- (IBAction)handleKeyDown:(id)sender;
+- (IBAction)handleKeyUp:(id)sender;
 @end
 

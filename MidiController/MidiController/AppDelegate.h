@@ -11,7 +11,12 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     CMMotionManager *motionManager;
+    
+//    NSNetService *service;
+//    uint16_t port;
+//    CFSocketRef listeningSocket;
 }
+
 
 @property (strong, nonatomic) UIWindow *window;
 
