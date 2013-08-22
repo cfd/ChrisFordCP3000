@@ -17,18 +17,12 @@
 - (void) sendNoteOnEvent:(Byte) note velocity:(Byte)velocity;
 - (void) sendNoteOffEvent:(Byte)key velocity:(Byte)velocity;
 
-//@property (assign) MIDINetworkSession *midiSession;
-//@property (assign) MIDIEndpointRef destinationEndpoint;
-//@property (assign) MIDIPortRef outputPort;
-
 
 
 @end
 
 @implementation MidiViewController
-//@synthesize midiSession;
-//@synthesize destinationEndpoint;
-//@synthesize outputPort;
+
 
 - (IBAction)handleKeyDown:(id)sender{
     printf("midiNumberDown: %d", [sender tag]);

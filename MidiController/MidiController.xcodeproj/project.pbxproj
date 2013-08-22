@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830468DB17C5D1F8008F01A1 /* BetterMidiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830468DA17C5D1F8008F01A1 /* BetterMidiViewController.m */; };
 		835D150117C1C41E002C2C69 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D150017C1C41E002C2C69 /* CoreMIDI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		835D150417C1C437002C2C69 /* MidiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D150317C1C437002C2C69 /* MidiViewController.m */; };
 		8374BDDF17BB57E400B050F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8374BDDE17BB57E400B050F8 /* UIKit.framework */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		830468D917C5D1F8008F01A1 /* BetterMidiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetterMidiViewController.h; sourceTree = "<group>"; };
+		830468DA17C5D1F8008F01A1 /* BetterMidiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetterMidiViewController.m; sourceTree = "<group>"; };
 		835D150017C1C41E002C2C69 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		835D150217C1C437002C2C69 /* MidiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiViewController.h; sourceTree = "<group>"; };
 		835D150317C1C437002C2C69 /* MidiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiViewController.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				83DB8C5817C0B64000FAB4DE /* MotionViewController.m */,
 				835D150217C1C437002C2C69 /* MidiViewController.h */,
 				835D150317C1C437002C2C69 /* MidiViewController.m */,
+				830468D917C5D1F8008F01A1 /* BetterMidiViewController.h */,
+				830468DA17C5D1F8008F01A1 /* BetterMidiViewController.m */,
 				8374BDE517BB57E400B050F8 /* Supporting Files */,
 			);
 			path = MidiController;
@@ -194,6 +199,7 @@
 				8374BDEF17BB57E400B050F8 /* AppDelegate.m in Sources */,
 				83DB8C5917C0B64000FAB4DE /* MotionViewController.m in Sources */,
 				835D150417C1C437002C2C69 /* MidiViewController.m in Sources */,
+				830468DB17C5D1F8008F01A1 /* BetterMidiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
