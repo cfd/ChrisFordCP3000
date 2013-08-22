@@ -38,31 +38,30 @@ static void CheckError(OSStatus error, const char *operation) {
 
 -(void) configurePort {
     
-    session = [MIDINetworkSession defaultSession]; if (session) {
+    session = [MIDINetworkSession defaultSession];
+if (session) {
         NSLog (@"Got MIDI session");
         //[session addConnection:connection]; session.enabled = YES;
         destinationEndpoint = [session destinationEndpoint];
         MIDIClientRef client = NULL;
         MIDIPortRef outport = NULL;
-        CheckError (MIDIClientCreate(CFSTR("MyMIDIWifi Client"),
-                                     NULL, NULL, &client), "Couldn't create MIDI client"); CheckError (MIDIOutputPortCreate(client,
-                                                                                                                            CFSTR("MyMIDIWifi Output port"),
-                                                                                                                            &outport), "Couldn't create output port");
+        CheckError (MIDIClientCreate(CFSTR("MyMIDIWifi Client"), NULL, NULL, &client), "Couldn't create MIDI client");
+        CheckError (MIDIOutputPortCreate(client, CFSTR("MyMIDIWifi Output port"), &outport), "Couldn't create output port");
         outputPort = outport;
         NSLog (@"Got output port");
     }
 }
 
--(void) sendStatus:(Byte)status data1:(Byte)data1 data2:(Byte)data2 {
-    MIDIPacketList packetList;
-    packetList.numPackets = 1;
-    packetList.packet[0].length = 3;
-    packetList.packet[0].data[0] = status;
-    packetList.packet[0].data[1] = data1;
-    packetList.packet[0].data[2] = data2;
-    packetList.packet[0].timeStamp = 0;
-    CheckError (MIDISend(outputPort, destinationEndpoint, &packetList), "Couldn't send MIDI packet list");
-}
+//-(void) sendStatus:(Byte)status data1:(Byte)data1 data2:(Byte)data2 {
+//    MIDIPacketList packetList;
+//    packetList.numPackets = 1;
+//    packetList.packet[0].length = 3;
+//    packetList.packet[0].data[0] = status;
+//    packetList.packet[0].data[1] = data1;
+//    packetList.packet[0].data[2] = data2;
+//    packetList.packet[0].timeStamp = 0;
+//    CheckError (MIDISend(outputPort, destinationEndpoint, &packetList), "Couldn't send MIDI packet list");
+//}
 
 
 
@@ -99,14 +98,12 @@ static void CheckError(OSStatus error, const char *operation) {
 }
 
 -(void)resolveIPAddress:(NSNetService *)service {
-    NSLog(@"heyyy");
     NSNetService *remoteService = service;
     remoteService.delegate = self;
     [remoteService resolveWithTimeout:10];
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)service {
-    NSLog(@"HELLO");
     @synchronized (session) {
         NSString *name = service.name;
         MIDINetworkHost* contact = [MIDINetworkHost hostWithName:name netService:service];
@@ -129,13 +126,7 @@ static void CheckError(OSStatus error, const char *operation) {
             
             NSLog(@"added contact: %@", name);
             [session addContact:contact];
-            
-            NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:name, @"name", nil];
-            
-            NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
-            [center postNotificationName:@"DiscoveredContact"
-                                  object:self
-                                userInfo:userInfo];
+
         }
     }
 }
@@ -238,16 +229,12 @@ static void CheckError(OSStatus error, const char *operation) {
 - (IBAction)handleKeyDown:(id)sender{
     printf("midiNumberDown: %d", [sender tag]);
     [self onChannel:11 startNote:[sender tag] withVelocity:127];
-    //NSInteger note = [sender tag];
-    //[self sendNoteOnEvent:(Byte) note velocity:127];
     
     
 }
 - (IBAction)handleKeyUp:(id)sender{
     printf("midiNumberUp: %d", [sender tag]);
     [self onChannel:11 stopNote:[sender tag] withVelocity:127];
-    //NSInteger note = [sender tag];
-    //[self sendNoteOffEvent:(Byte) note velocity:127];
 }
 
 - (void)viewDidLoad
