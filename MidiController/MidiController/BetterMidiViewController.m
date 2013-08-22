@@ -38,15 +38,25 @@ static MIDINetworkSession* session = nil;
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing {
     @synchronized (session) {
+        if (!services) {
+            services = [[NSMutableArray alloc] init];
+        }
         NSLog(@"browser found service %@", aNetService.name);
         NSLog(@"more? %s",moreComing ? "yes" : "no");
-        aNetService.delegate = self;
-        [aNetService resolveWithTimeout:30];
+        [services addObject:aNetService];
+        [self resolveIPAddress:aNetService];
     }
 }
 
+-(void)resolveIPAddress:(NSNetService *)service {
+    NSLog(@"heyyy");
+    NSNetService *remoteService = service;
+    remoteService.delegate = self;
+    [remoteService resolveWithTimeout:10];
+}
+
 - (void)netServiceDidResolveAddress:(NSNetService *)service {
-    
+    NSLog(@"HELLO");
     @synchronized (session) {
         NSString *name = service.name;
         MIDINetworkHost* contact = [MIDINetworkHost hostWithName:name netService:service];

@@ -34,6 +34,7 @@
 
 - (void) search;
 - (void) clearContacts;
+- (void)resolveIPAddress:(NSNetService *)service;
 
 + (BetterMidiViewController*) getInstance;
 
