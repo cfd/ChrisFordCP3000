@@ -13,6 +13,9 @@
 
 @interface MidiViewController : UIViewController{
 
+    MIDINetworkSession *midiSession;
+    MIDIEndpointRef destinationEndpoint;
+    MIDIPortRef outputPort;
 }
 
 - (IBAction)handleKeyDown:(id)sender;

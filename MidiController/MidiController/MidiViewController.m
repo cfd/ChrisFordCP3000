@@ -17,18 +17,18 @@
 - (void) sendNoteOnEvent:(Byte) note velocity:(Byte)velocity;
 - (void) sendNoteOffEvent:(Byte)key velocity:(Byte)velocity;
 
-@property (assign) MIDINetworkSession *midiSession;
-@property (assign) MIDIEndpointRef destinationEndpoint;
-@property (assign) MIDIPortRef outputPort;
+//@property (assign) MIDINetworkSession *midiSession;
+//@property (assign) MIDIEndpointRef destinationEndpoint;
+//@property (assign) MIDIPortRef outputPort;
 
 
 
 @end
 
 @implementation MidiViewController
-@synthesize midiSession;
-@synthesize destinationEndpoint;
-@synthesize outputPort;
+//@synthesize midiSession;
+//@synthesize destinationEndpoint;
+//@synthesize outputPort;
 
 - (IBAction)handleKeyDown:(id)sender{
     printf("midiNumberDown: %d", [sender tag]);
@@ -66,17 +66,17 @@ static void CheckError(OSStatus error, const char *operation) {
     [MIDINetworkConnection connectionWithHost:host]; if(!connection)
         return;
     
-    self.midiSession = [MIDINetworkSession defaultSession]; if (self.midiSession) {
+    midiSession = [MIDINetworkSession defaultSession]; if (midiSession) {
         NSLog (@"Got MIDI session");
-        [self.midiSession addConnection:connection]; self.midiSession.enabled = YES;
-        self.destinationEndpoint = [self.midiSession destinationEndpoint];
+        [midiSession addConnection:connection]; midiSession.enabled = YES;
+        destinationEndpoint = [midiSession destinationEndpoint];
         MIDIClientRef client = NULL;
         MIDIPortRef outport = NULL;
         CheckError (MIDIClientCreate(CFSTR("MyMIDIWifi Client"),
                                      NULL, NULL, &client), "Couldn't create MIDI client"); CheckError (MIDIOutputPortCreate(client,
                                                                                      CFSTR("MyMIDIWifi Output port"),
                                                                                      &outport), "Couldn't create output port");
-        self.outputPort = outport;
+        outputPort = outport;
         NSLog (@"Got output port");
     }
 }
@@ -89,7 +89,7 @@ static void CheckError(OSStatus error, const char *operation) {
     packetList.packet[0].data[1] = data1;
     packetList.packet[0].data[2] = data2;
     packetList.packet[0].timeStamp = 0;
-    CheckError (MIDISend(self.outputPort, self.destinationEndpoint, &packetList), "Couldn't send MIDI packet list");
+    CheckError (MIDISend(outputPort, destinationEndpoint, &packetList), "Couldn't send MIDI packet list");
 }
 
 -(void) sendNoteOnEvent:(Byte)key velocity:(Byte)velocity {
