@@ -17,9 +17,59 @@
 
 static BetterMidiViewController* instance = nil;
 
-static MIDINetworkSession* session = nil;
 
 @implementation BetterMidiViewController
+
+
+static void CheckError(OSStatus error, const char *operation) {
+    if (error == noErr) return;
+    char errorString[20];
+    // See if it appears to be a 4-char-code
+    *(UInt32 *)(errorString + 1) = CFSwapInt32HostToBig(error); if (isprint(errorString[1]) && isprint(errorString[2]) &&
+                                                                    isprint(errorString[3]) && isprint(errorString[4])) { errorString[0] = errorString[5] = '\''; errorString[6] = '\0';
+    } else {
+        
+        // No, format it as an integer
+        sprintf(errorString, "%d", (int)error);
+        fprintf(stderr, "Error: %s (%s)\n", operation, errorString); exit(1);
+    }
+}
+
+
+-(void) configurePort {
+    
+    session = [MIDINetworkSession defaultSession]; if (session) {
+        NSLog (@"Got MIDI session");
+        //[session addConnection:connection]; session.enabled = YES;
+        destinationEndpoint = [session destinationEndpoint];
+        MIDIClientRef client = NULL;
+        MIDIPortRef outport = NULL;
+        CheckError (MIDIClientCreate(CFSTR("MyMIDIWifi Client"),
+                                     NULL, NULL, &client), "Couldn't create MIDI client"); CheckError (MIDIOutputPortCreate(client,
+                                                                                                                            CFSTR("MyMIDIWifi Output port"),
+                                                                                                                            &outport), "Couldn't create output port");
+        outputPort = outport;
+        NSLog (@"Got output port");
+    }
+}
+
+-(void) sendStatus:(Byte)status data1:(Byte)data1 data2:(Byte)data2 {
+    MIDIPacketList packetList;
+    packetList.numPackets = 1;
+    packetList.packet[0].length = 3;
+    packetList.packet[0].data[0] = status;
+    packetList.packet[0].data[1] = data1;
+    packetList.packet[0].data[2] = data2;
+    packetList.packet[0].timeStamp = 0;
+    CheckError (MIDISend(outputPort, destinationEndpoint, &packetList), "Couldn't send MIDI packet list");
+}
+
+
+
+
+
+
+
 
 -(void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser{
     NSLog(@"searching...");
@@ -203,6 +253,7 @@ static MIDINetworkSession* session = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self configurePort];
     [self search];
 	// Do any additional setup after loading the view.
 }

@@ -14,8 +14,9 @@
     NSNetServiceBrowser *browser;
     NSMutableArray *services;
     
+    MIDINetworkSession *session;
+    MIDIEndpointRef destinationEndpoint;
     MIDIPortRef outputPort;
-    MIDIClientRef client;
 }
 
 //-(void) resolveIPAddress:(NSNetService *)service;
@@ -34,7 +35,8 @@
 
 - (void) search;
 - (void) clearContacts;
-- (void)resolveIPAddress:(NSNetService *)service;
+- (void) resolveIPAddress:(NSNetService *)service;
+- (void) configurePort;
 
 + (BetterMidiViewController*) getInstance;
 
