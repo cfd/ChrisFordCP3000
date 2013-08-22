@@ -19,19 +19,15 @@
     MIDIPortRef outputPort;
 }
 
-//-(void) resolveIPAddress:(NSNetService *)service;
-//-(void) browseServices;
+-(void) sendStatus:(Byte)status data1:(Byte)data1 data2:(Byte)data2;
+
+-(void) sendNoteOnEvent:(Byte)key velocity:(Byte)velocity;
+-(void) sendNoteOffEvent:(Byte)key velocity:(Byte)velocity;
 
 - (IBAction)handleKeyDown:(id)sender;
 - (IBAction)handleKeyUp:(id)sender;
 
-- (void) onChannel: (UInt8) chan
-         startNote: (UInt8) note
-      withVelocity: (UInt8) velocity;
 
-- (void) onChannel: (UInt8) chan
-          stopNote: (UInt8) note
-      withVelocity: (UInt8) velocity;
 
 - (void) search;
 - (void) clearContacts;

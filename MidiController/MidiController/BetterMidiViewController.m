@@ -7,9 +7,6 @@
 //
 
 #import "BetterMidiViewController.h"
-#import <netinet/in.h>
-#import <arpa/inet.h>
-#import <mach/mach_time.h>
 
 @interface BetterMidiViewController ()
 
@@ -25,8 +22,7 @@ static void CheckError(OSStatus error, const char *operation) {
     if (error == noErr) return;
     char errorString[20];
     // See if it appears to be a 4-char-code
-    *(UInt32 *)(errorString + 1) = CFSwapInt32HostToBig(error); if (isprint(errorString[1]) && isprint(errorString[2]) &&
-                                                                    isprint(errorString[3]) && isprint(errorString[4])) { errorString[0] = errorString[5] = '\''; errorString[6] = '\0';
+    *(UInt32 *)(errorString + 1) = CFSwapInt32HostToBig(error); if (isprint(errorString[1]) && isprint(errorString[2]) && isprint(errorString[3]) && isprint(errorString[4])) { errorString[0] = errorString[5] = '\''; errorString[6] = '\0';
     } else {
         
         // No, format it as an integer
@@ -51,24 +47,6 @@ if (session) {
         NSLog (@"Got output port");
     }
 }
-
-//-(void) sendStatus:(Byte)status data1:(Byte)data1 data2:(Byte)data2 {
-//    MIDIPacketList packetList;
-//    packetList.numPackets = 1;
-//    packetList.packet[0].length = 3;
-//    packetList.packet[0].data[0] = status;
-//    packetList.packet[0].data[1] = data1;
-//    packetList.packet[0].data[2] = data2;
-//    packetList.packet[0].timeStamp = 0;
-//    CheckError (MIDISend(outputPort, destinationEndpoint, &packetList), "Couldn't send MIDI packet list");
-//}
-
-
-
-
-
-
-
 
 -(void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser{
     NSLog(@"searching...");
@@ -178,63 +156,34 @@ if (session) {
     return self;
 }
 
-- (void) onChannel: (UInt8) chan
-         startNote: (UInt8) note
-      withVelocity: (UInt8) velocity {
-    
-    if (chan < 16 && note < 128 && velocity < 128) {
-        
-        Byte rawBuffer[1024];
-        MIDIPacketList* packetBuffer = (MIDIPacketList*) rawBuffer;
-        
-        Byte midiBuffer[3];
-        midiBuffer[0] = 144 + chan-1;
-        midiBuffer[1] = note;
-        midiBuffer[2] = velocity;
-        
-        MIDITimeStamp timestamp = mach_absolute_time();
-        
-        MIDIPacket* curr = MIDIPacketListInit(packetBuffer);
-        curr = MIDIPacketListAdd(packetBuffer, sizeof(rawBuffer), curr, timestamp, 3, midiBuffer);
-        
-        NSLog(@"MIDIsend %d %d %d",chan, note, velocity);
-        MIDISend(outputPort, [[MIDINetworkSession defaultSession] destinationEndpoint], packetBuffer);
-    }
+
+-(void) sendStatus:(Byte)status data1:(Byte)data1 data2:(Byte)data2 {
+    MIDIPacketList packetList;
+    packetList.numPackets = 1;
+    packetList.packet[0].length = 3;
+    packetList.packet[0].data[0] = status;
+    packetList.packet[0].data[1] = data1;
+    packetList.packet[0].data[2] = data2;
+    packetList.packet[0].timeStamp = 0;
+    CheckError (MIDISend(outputPort, destinationEndpoint, &packetList), "Couldn't send MIDI packet list");
 }
 
-- (void) onChannel: (UInt8) chan
-          stopNote: (UInt8) note
-      withVelocity: (UInt8) velocity {
-    
-    if (chan < 16 && note < 128 && velocity < 128) {
-        
-        Byte rawBuffer[1024];
-        MIDIPacketList* packetBuffer = (MIDIPacketList*) rawBuffer;
-        
-        Byte midiBuffer[3];
-        midiBuffer[0] = 128 + chan-1;
-        midiBuffer[1] = note;
-        midiBuffer[2] = velocity;
-        
-        MIDITimeStamp timestamp = mach_absolute_time();
-        
-        MIDIPacket* curr = MIDIPacketListInit(packetBuffer);
-        curr = MIDIPacketListAdd(packetBuffer, sizeof(rawBuffer), curr, timestamp, 3, midiBuffer);
-        
-        NSLog(@"MIDIsend %d %d %d",chan, note, velocity);
-        MIDISend(outputPort, [[MIDINetworkSession defaultSession] destinationEndpoint], packetBuffer);
-    }
+-(void) sendNoteOnEvent:(Byte)key velocity:(Byte)velocity {
+    [self sendStatus:0x90 data1:key & 0x7F data2:velocity & 0x7F];
+}
+-(void) sendNoteOffEvent:(Byte)key velocity:(Byte)velocity {
+    [self sendStatus:0x80 data1:key & 0x7F data2:velocity & 0x7F];
 }
 
 - (IBAction)handleKeyDown:(id)sender{
     printf("midiNumberDown: %d", [sender tag]);
-    [self onChannel:11 startNote:[sender tag] withVelocity:127];
+    [self sendNoteOnEvent:(Byte) [sender tag] velocity:127];
     
     
 }
 - (IBAction)handleKeyUp:(id)sender{
     printf("midiNumberUp: %d", [sender tag]);
-    [self onChannel:11 stopNote:[sender tag] withVelocity:127];
+    [self sendNoteOffEvent:(Byte) [sender tag] velocity:127];
 }
 
 - (void)viewDidLoad
