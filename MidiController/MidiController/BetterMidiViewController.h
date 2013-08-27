@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreMIDI/CoreMIDI.h>
+#import <CoreMotion/CoreMotion.h>
 
 
 @interface BetterMidiViewController : UIViewController <NSNetServiceDelegate, NSNetServiceBrowserDelegate>{
