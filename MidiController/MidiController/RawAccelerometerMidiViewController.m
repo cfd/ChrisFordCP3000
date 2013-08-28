@@ -6,16 +6,17 @@
 //  Copyright (c) 2013 Chris. All rights reserved.
 //
 
-#import "BetterMidiViewController.h"
+#import "RawAccelerometerMidiViewController.h"
+#import "math.h"
 
-@interface BetterMidiViewController ()
+@interface RawAccelerometerMidiViewController ()
 
 @end
 
-static BetterMidiViewController* instance = nil;
+static RawAccelerometerMidiViewController* instance = nil;
 
 
-@implementation BetterMidiViewController
+@implementation RawAccelerometerMidiViewController
 
 
 static void CheckError(OSStatus error, const char *operation) {
@@ -35,7 +36,7 @@ static void CheckError(OSStatus error, const char *operation) {
 -(void) configurePort {
     
     session = [MIDINetworkSession defaultSession];
-if (session) {
+    if (session) {
         NSLog (@"Got MIDI session");
         //[session addConnection:connection]; session.enabled = YES;
         destinationEndpoint = [session destinationEndpoint];
@@ -104,7 +105,7 @@ if (session) {
             
             NSLog(@"added contact: %@", name);
             [session addContact:contact];
-
+            
         }
     }
 }
@@ -119,7 +120,7 @@ if (session) {
 }
 
 - (void) search {
-    [[BetterMidiViewController getInstance] clearContacts];
+    [[RawAccelerometerMidiViewController getInstance] clearContacts];
     browser = [[NSNetServiceBrowser alloc] init];
     browser.delegate = instance;
     [browser searchForRegistrationDomains];
@@ -138,11 +139,11 @@ if (session) {
     }
 }
 
-+ (BetterMidiViewController*)getInstance
++ (RawAccelerometerMidiViewController*)getInstance
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[BetterMidiViewController alloc] init];
+        instance = [[RawAccelerometerMidiViewController alloc] init];
     });
     return instance;
 }
@@ -175,15 +176,8 @@ if (session) {
     [self sendMessage:0x80 withNote:note withVelocity:velocity];
 }
 
-- (IBAction)handleKeyDown:(id)sender{
-    printf("midiNumberDown: %d", [sender tag]);
-    [self sendNoteOnEvent:(Byte) [sender tag] velocity:127];
-    
-    
-}
-- (IBAction)handleKeyUp:(id)sender{
-    printf("midiNumberUp: %d", [sender tag]);
-    [self sendNoteOffEvent:(Byte) [sender tag] velocity:127];
+-(void) sendAllNotesOffEvent {
+    [self sendMessage:176 withNote:123 withVelocity:127];
 }
 
 - (void)viewDidLoad
@@ -205,108 +199,124 @@ if (session) {
     return motionManager;
 }
 
-- (void)startAccelerometer{
+
+- (void)startDeviceMotion{
     //    __block float stepMoveFactor = 15;
     
-    [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:^(CMAccelerometerData *data,NSError *error)
+    [self.motionManager startDeviceMotionUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:^(CMDeviceMotion *data,NSError *error)
      {
+         CMAcceleration grav = data.gravity;
          dispatch_async(dispatch_get_main_queue(), ^{
-             //printf("AccX: %f\nAccY: %f\nAccZ: %f\r\n", data.acceleration.x, data.acceleration.y, data.acceleration.z);
-             //             accX.text = [NSString stringWithFormat:@"X: %f", data.acceleration.x];
-             //             accY.text = [NSString stringWithFormat:@"Y: %f", data.acceleration.y];
-             //             accZ.text = [NSString stringWithFormat:@"Z: %f", data.acceleration.z];
+             int gravX = roundf(grav.x);
+             int gravY = roundf(grav.y);
+             int gravZ = roundf(grav.z);
+             NSLog(@"%d   %d   %d", gravX, gravY, gravZ);
+             //NSLog(cPlaying ? @"Yes" : @"No");
+                   //       NSLog(@"%d", (int)grav.x);
              
-             NSLog(@"X:%d", ABS((int)data.acceleration.x));
-             int accX = ABS((int)data.acceleration.x);
-             switch (accX)
-             
-             {
+             switch(gravX){
+                     
                  case 1:
-                     
-                     [self sendNoteOnEvent:60 velocity:127];
-                     
+                     if(!ePlaying){
+                         ePlaying = YES;
+                         [self sendNoteOnEvent:64 velocity:127];
+                     }
                      break;
                      
-                 case 2:
-                     [self sendNoteOffEvent:60 velocity:127];
-                     [self sendNoteOnEvent:62 velocity:127];
+                 case -1:
+                     if(!cPlaying){
+                         cPlaying = YES;
+                         [self sendNoteOnEvent:60 velocity:127];
+                     }
+                     break;
+            
+                 case 0:
+                     if(ePlaying){
+                         ePlaying = NO;
+                         [self sendNoteOffEvent:64 velocity:127];
+                     }
+                     if(cPlaying){
+                         cPlaying = NO;
+                         [self sendNoteOffEvent:60 velocity:127];
+                     }
+                     break;
+                
+             }
+             
+             switch(gravY){
                      
+                 case 1:
+                     if(!dPlaying){
+                         dPlaying = YES;
+                         [self sendNoteOnEvent:62 velocity:127];
+                     }
                      break;
                      
-                 case 3:
-                     [self sendNoteOffEvent:62 velocity:127];
-                     [self sendNoteOnEvent:64 velocity:127];
-                     
+                 case -1:
+                     if(!gPlaying){
+                         gPlaying = YES;
+                         [self sendNoteOnEvent:67 velocity:127];
+                     }
                      break;
                      
-                 default:
-                     
-                     [self sendNoteOffEvent:60 velocity:127];
-                     [self sendNoteOffEvent:62 velocity:127];
-                     [self sendNoteOffEvent:64 velocity:127];
-                     
+                 case 0:
+                     if(dPlaying){
+                         dPlaying = NO;
+                         [self sendNoteOffEvent:62 velocity:127];
+                     }
+                     if(gPlaying){
+                         gPlaying = NO;
+                         [self sendNoteOffEvent:67 velocity:127];
+                     }
                      break;
                      
              }
+             
+             switch(gravZ){
+                     
+                 case 1:
+                     if(!aPlaying){
+                         aPlaying = YES;
+                         [self sendNoteOnEvent:69 velocity:127];
+                     }
+                     break;
+                     
+                     
+                 case 0:
+                     if(aPlaying){
+                         aPlaying = NO;
+                         [self sendNoteOffEvent:69 velocity:127];
+                     }
+                     break;
+             }
+
+             
+//             if(grav.x){
+//                 [self sendNoteOnEvent:60 velocity:127];
+//             }
+
          });
      }];
 }
-
-/*
- JASON: Is this the point - to have notes say C-B on say accelerometer and the gyro can change the pitch (midi equivilent velocity? what is velocity???  volume?)
- Also i never specified a channel? say what?
- 
- i gather if motion is constantly sampled... then its ok to send messages constantly? :/ but I don't really know how to send stop messages with the motion stuff :'(
- 
- */
-
-
-- (void)startGyroscope{
-    //    __block float stepMoveFactor = 15;
-    
-    [self.motionManager startGyroUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:^(CMGyroData *data,NSError *error)
-     {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             //printf("GyroX: %f\nGyroY: %f\nGyroZ: %f\r\n", data.rotationRate.x, data.rotationRate.y, data.rotationRate.z);
-             //             gyroX.text = [NSString stringWithFormat:@"X: %f", data.rotationRate.x];
-             //             gyroY.text = [NSString stringWithFormat:@"Y: %f", data.rotationRate.y];
-             //             gyroZ.text = [NSString stringWithFormat:@"Z: %f", data.rotationRate.z];
-             
-             //NSLog(@"X: %f", data.rotationRate.x);
-             //             if(ABS(data.rotationRate.x)>1 && ABS(data.rotationRate.x)<2){
-             //                 [self sendNoteOnEvent:(Byte) 60 velocity:127];
-             //                 NSLog(@"low C");
-             //             }else if(ABS(data.rotationRate.x)>2 && ABS(data.rotationRate.x)<3){
-             //                 [self sendNoteOffEvent:(Byte) 60 velocity:127];
-             //                 [self sendNoteOnEvent:(Byte) 72 velocity:127];
-             //                 NSLog(@"high C on | low C off" );
-             //             }else if(ABS(data.rotationRate.x)>0 && ABS(data.rotationRate.x)<1){
-             //                 [self sendNoteOffEvent:(Byte) 60 velocity:127];
-             //                 [self sendNoteOnEvent:(Byte) 72 velocity:127];
-             //                 NSLog(@"high C on | low C off" );
-             //             }
-             
-             
-             
-             
-         });
-     }];
-}
-
 
 
 
 
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    //[self startAccelerometer];
-    //[self startGyroscope];
+    [self startDeviceMotion];
+     
+     
+    NSLog(@"Motion updates began");
+    
+    
+    
+    
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    //[self.motionManager stopAccelerometerUpdates];
-    //[self.motionManager stopGyroUpdates];
+
 }
 
 - (void)didReceiveMemoryWarning

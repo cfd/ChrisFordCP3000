@@ -20,6 +20,7 @@
 		8374BDF317BB57E400B050F8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8374BDF217BB57E400B050F8 /* Default@2x.png */; };
 		8374BDF517BB57E400B050F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8374BDF417BB57E400B050F8 /* Default-568h@2x.png */; };
 		8391211417C351A300978723 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391211317C351A300978723 /* CoreAudio.framework */; };
+		83A9DCE217CE0142001DC321 /* RawAccelerometerMidiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A9DCE117CE0142001DC321 /* RawAccelerometerMidiViewController.m */; };
 		83DB8C5617C0B57700FAB4DE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83DB8C5517C0B57700FAB4DE /* Storyboard.storyboard */; };
 		83DB8C5917C0B64000FAB4DE /* MotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB8C5817C0B64000FAB4DE /* MotionViewController.m */; };
 		83DB8C5B17C0BA6400FAB4DE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DB8C5A17C0BA6400FAB4DE /* CoreMotion.framework */; };
@@ -45,6 +46,8 @@
 		8374BDF217BB57E400B050F8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8374BDF417BB57E400B050F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8391211317C351A300978723 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		83A9DCE017CE0142001DC321 /* RawAccelerometerMidiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawAccelerometerMidiViewController.h; sourceTree = "<group>"; };
+		83A9DCE117CE0142001DC321 /* RawAccelerometerMidiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawAccelerometerMidiViewController.m; sourceTree = "<group>"; };
 		83DB8C5517C0B57700FAB4DE /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		83DB8C5717C0B64000FAB4DE /* MotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionViewController.h; sourceTree = "<group>"; };
 		83DB8C5817C0B64000FAB4DE /* MotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionViewController.m; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				835D150317C1C437002C2C69 /* MidiViewController.m */,
 				830468D917C5D1F8008F01A1 /* BetterMidiViewController.h */,
 				830468DA17C5D1F8008F01A1 /* BetterMidiViewController.m */,
+				83A9DCE017CE0142001DC321 /* RawAccelerometerMidiViewController.h */,
+				83A9DCE117CE0142001DC321 /* RawAccelerometerMidiViewController.m */,
 				8374BDE517BB57E400B050F8 /* Supporting Files */,
 			);
 			path = MidiController;
@@ -200,6 +205,7 @@
 				83DB8C5917C0B64000FAB4DE /* MotionViewController.m in Sources */,
 				835D150417C1C437002C2C69 /* MidiViewController.m in Sources */,
 				830468DB17C5D1F8008F01A1 /* BetterMidiViewController.m in Sources */,
+				83A9DCE217CE0142001DC321 /* RawAccelerometerMidiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

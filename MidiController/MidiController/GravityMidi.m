@@ -35,7 +35,7 @@ static void CheckError(OSStatus error, const char *operation) {
 -(void) configurePort {
     
     session = [MIDINetworkSession defaultSession];
-if (session) {
+    if (session) {
         NSLog (@"Got MIDI session");
         //[session addConnection:connection]; session.enabled = YES;
         destinationEndpoint = [session destinationEndpoint];
@@ -104,7 +104,7 @@ if (session) {
             
             NSLog(@"added contact: %@", name);
             [session addContact:contact];
-
+            
         }
     }
 }
@@ -193,7 +193,6 @@ if (session) {
     [self search];
 	// Do any additional setup after loading the view.
 }
-
 
 - (CMMotionManager *)motionManager{
     CMMotionManager *motionManager = nil;
@@ -292,8 +291,6 @@ if (session) {
          });
      }];
 }
-
-
 
 
 
