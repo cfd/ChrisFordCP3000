@@ -20,10 +20,10 @@
     MIDIPortRef outputPort;
 }
 
--(void) sendStatus:(Byte)status data1:(Byte)data1 data2:(Byte)data2;
+-(void) sendMessage:(Byte)status withNote:(Byte)note withVelocity:(Byte)velocity;
 
--(void) sendNoteOnEvent:(Byte)key velocity:(Byte)velocity;
--(void) sendNoteOffEvent:(Byte)key velocity:(Byte)velocity;
+-(void) sendNoteOnEvent:(Byte)note velocity:(Byte)velocity;
+-(void) sendNoteOffEvent:(Byte)note velocity:(Byte)velocity;
 
 - (IBAction)handleKeyDown:(id)sender;
 - (IBAction)handleKeyUp:(id)sender;
