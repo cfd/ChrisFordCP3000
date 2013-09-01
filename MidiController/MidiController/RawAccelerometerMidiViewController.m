@@ -317,7 +317,8 @@ static void CheckError(OSStatus error, const char *operation) {
                          break;
                          
                      case 0:
-                         [self sendMessage:224 withNote:63 withVelocity:63];;
+                         [self sendMessage:224 withNote:64 withVelocity:64
+                          ];;
                          NSLog(@"reset X");
                          break;
                      
@@ -338,7 +339,7 @@ static void CheckError(OSStatus error, const char *operation) {
                          break;
                          
                      case 0:
-                         [self sendMessage:224 withNote:63 withVelocity:63];;
+                         [self sendMessage:224 withNote:64 withVelocity:64];;
                          NSLog(@"reset Y");
                          break;
                          
@@ -359,7 +360,7 @@ static void CheckError(OSStatus error, const char *operation) {
                          break;
                          
                      case 0:
-                         [self sendMessage:224 withNote:63 withVelocity:63];
+                         [self sendMessage:224 withNote:64 withVelocity:64];
                          NSLog(@"reset Z");
                          break;
                          
@@ -393,6 +394,7 @@ static void CheckError(OSStatus error, const char *operation) {
 
 - (void) viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    [self.motionManager stopDeviceMotionUpdates];
 
 }
 
