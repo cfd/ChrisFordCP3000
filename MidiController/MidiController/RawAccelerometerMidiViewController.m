@@ -200,6 +200,7 @@ static void CheckError(OSStatus error, const char *operation) {
 }
 
 
+
 - (void)startDeviceMotion{
     //    __block float stepMoveFactor = 15;
     
@@ -210,7 +211,7 @@ static void CheckError(OSStatus error, const char *operation) {
              int gravX = roundf(grav.x);
              int gravY = roundf(grav.y);
              int gravZ = roundf(grav.z);
-             NSLog(@"%d   %d   %d", gravX, gravY, gravZ);
+             //NSLog(@"%d   %d   %d", gravX, gravY, gravZ);
              //NSLog(cPlaying ? @"Yes" : @"No");
                    //       NSLog(@"%d", (int)grav.x);
              
@@ -296,7 +297,83 @@ static void CheckError(OSStatus error, const char *operation) {
 //             }
 
          });
+         
+         CMRotationRate rotRate = data.rotationRate;
+         dispatch_async(dispatch_get_main_queue(), ^{
+             
+             int rotX = roundf(rotRate.x);
+             int rotY = roundf(rotRate.y);
+             int rotZ = roundf(rotRate.z);
+             NSLog(@"%d   %d   %d", rotX, rotY, rotZ);
+             
+             if(cPlaying || ePlaying){
+                 switch (rotX) {
+                     case 5:
+                         [self sendMessage:224 withNote:0 withVelocity:0];
+                         break;
+                     
+                     case -5:
+                         [self sendMessage:224 withNote:127 withVelocity:127];
+                         break;
+                         
+                     case 0:
+                         [self sendMessage:224 withNote:63 withVelocity:63];;
+                         NSLog(@"reset X");
+                         break;
+                     
+                     default:
+                         
+                         break;
+                 }
+             }
+             
+             if(dPlaying || gPlaying){
+                 switch (rotY) {
+                     case 5:
+                         [self sendMessage:224 withNote:0 withVelocity:0];
+                         break;
+                         
+                     case -5:
+                         [self sendMessage:224 withNote:127 withVelocity:127];
+                         break;
+                         
+                     case 0:
+                         [self sendMessage:224 withNote:63 withVelocity:63];;
+                         NSLog(@"reset Y");
+                         break;
+                         
+                     default:
+                         
+                         break;
+                 }
+             }
+             
+             if(aPlaying){
+                 switch (rotZ) {
+                     case 5:
+                         [self sendMessage:224 withNote:0 withVelocity:0];
+                         break;
+                         
+                     case -5:
+                         [self sendMessage:224 withNote:127 withVelocity:127];
+                         break;
+                         
+                     case 0:
+                         [self sendMessage:224 withNote:63 withVelocity:63];
+                         NSLog(@"reset Z");
+                         break;
+                         
+                     default:
+                         
+                         break;
+                 }
+             }
+         
+         });
+         
      }];
+    
+    
 }
 
 

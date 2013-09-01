@@ -27,7 +27,9 @@
     BOOL ePlaying;
     BOOL gPlaying;
     BOOL aPlaying;
+    
 }
+
 
 -(void) sendMessage:(Byte)status withNote:(Byte)note withVelocity:(Byte)velocity;
 
