@@ -158,22 +158,25 @@ static void CheckError(OSStatus error, const char *operation) {
 }
 
 
--(void) sendMessage:(Byte)command withNote:(Byte)note withVelocity:(Byte)velocity {
+-(void) sendMessage:(Byte)command withNote:(Byte)note withVelocity:(Byte)vel {
     MIDIPacketList packetList;
     packetList.numPackets = 1;
     packetList.packet[0].length = 3;
     packetList.packet[0].data[0] = command;
     packetList.packet[0].data[1] = note;
-    packetList.packet[0].data[2] = velocity;
+    packetList.packet[0].data[2] = vel;
     packetList.packet[0].timeStamp = 0;
     CheckError (MIDISend(outputPort, destinationEndpoint, &packetList), "Couldn't send MIDI packet list");
 }
 
--(void) sendNoteOnEvent:(Byte)note velocity:(Byte)velocity {
-    [self sendMessage:0x90 withNote:note withVelocity:velocity];
+-(void) sendNoteOnEvent:(Byte)note velocity:(Byte)vel {
+    [self sendMessage:0x90 withNote:note withVelocity:vel];
 }
--(void) sendNoteOffEvent:(Byte)note velocity:(Byte)velocity {
-    [self sendMessage:0x80 withNote:note withVelocity:velocity];
+-(void) sendPitchBendEvent:(Byte)msb lsb:(Byte)lsb {
+    [self sendMessage:0xE0 withNote:msb withVelocity:lsb];
+}
+-(void) sendNoteOffEvent:(Byte)note velocity:(Byte)vel {
+    [self sendMessage:0x80 withNote:note withVelocity:vel];
 }
 
 -(void) sendAllNotesOffEvent {
@@ -207,6 +210,16 @@ static void CheckError(OSStatus error, const char *operation) {
     [self.motionManager startDeviceMotionUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:^(CMDeviceMotion *data,NSError *error)
      {
          CMAttitude *attitude = data.attitude;
+//         CMQuaternion lol = attitude.quaternion;
+//
+//         int x = roundf(lol.x);
+//         int y = roundf(lol.y);
+//         int z = roundf(lol.z);
+//         int w = roundf(lol.w);
+//         
+//         NSLog(@"%d, %d, %d, %d", x, y, z, w);
+         
+         
          dispatch_async(dispatch_get_main_queue(), ^{
              int pitch = roundf(attitude.pitch);
              int roll = roundf(attitude.roll);
@@ -217,7 +230,7 @@ static void CheckError(OSStatus error, const char *operation) {
              
              switch(pitch){
                      
-                 case 1:
+                 case -1:
                      
                      switch(yaw){
                              
@@ -225,7 +238,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(!aPlaying){
                                  aPlaying = YES;
                                  aStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:57 velocity:127];
+                                 [self sendNoteOnEvent:57 velocity:velocity];
                              }
                              break;
                              
@@ -233,7 +246,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(!bPlaying){
                                  bPlaying = YES;
                                  bStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:59 velocity:127];
+                                 [self sendNoteOnEvent:59 velocity:velocity];
                              }
                              break;
                              
@@ -241,7 +254,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(!cPlaying){
                                  cPlaying = YES;
                                  cStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:60 velocity:127];
+                                 [self sendNoteOnEvent:60 velocity:velocity];
                              }
                              break;
                              
@@ -249,7 +262,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(!dPlaying){
                                  dPlaying = YES;
                                  dStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:62 velocity:127];
+                                 [self sendNoteOnEvent:62 velocity:velocity];
                              }
                              break;
                              
@@ -257,7 +270,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(!ePlaying){
                                  ePlaying = YES;
                                  eStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:64 velocity:127];
+                                 [self sendNoteOnEvent:64 velocity:velocity];
                              }
                              break;
                              
@@ -265,7 +278,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(!fPlaying){
                                  fPlaying = YES;
                                  fStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:65 velocity:127];
+                                 [self sendNoteOnEvent:65 velocity:velocity];
                              }
                              break;
                              
@@ -273,7 +286,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(!gPlaying){
                                  gPlaying = YES;
                                  gStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:67 velocity:127];
+                                 [self sendNoteOnEvent:67 velocity:velocity];
                              }
                              break;
                              
@@ -282,14 +295,14 @@ static void CheckError(OSStatus error, const char *operation) {
                      
                      break;
                      
-                 case -1:
+                 case 1:
                      switch(yaw){
                              
                          case 0:
                              if(aPlaying){
                                  aPlaying = NO;
                                  aStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:57 velocity:127];
+                                 [self sendNoteOffEvent:57 velocity:velocity];
                              }
                              break;
                              
@@ -297,7 +310,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(bPlaying){
                                  bPlaying = NO;
                                  bStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:59 velocity:127];
+                                 [self sendNoteOffEvent:59 velocity:velocity];
                              }
                              break;
                              
@@ -305,7 +318,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(cPlaying){
                                  cPlaying = NO;
                                  cStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:60 velocity:127];
+                                 [self sendNoteOffEvent:60 velocity:velocity];
                              }
                              break;
                              
@@ -313,7 +326,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(dPlaying){
                                  dPlaying = NO;
                                  dStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:62 velocity:127];
+                                 [self sendNoteOffEvent:62 velocity:velocity];
                              }
                              break;
                              
@@ -321,7 +334,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(ePlaying){
                                  ePlaying = NO;
                                  eStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:64 velocity:127];
+                                 [self sendNoteOffEvent:64 velocity:velocity];
                              }
                              break;
                              
@@ -329,7 +342,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(fPlaying){
                                  fPlaying = NO;
                                  fStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:65 velocity:127];
+                                 [self sendNoteOffEvent:65 velocity:velocity];
                              }
                              break;
                              
@@ -337,7 +350,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              if(gPlaying){
                                  gPlaying = NO;
                                  gStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:67 velocity:127];
+                                 [self sendNoteOffEvent:67 velocity:velocity];
                              }
                              break;
                              
@@ -345,64 +358,52 @@ static void CheckError(OSStatus error, const char *operation) {
                      break;                     
 
              }
-//             
-//             switch(roll){
-//                     
-//                 case 1:
-//                     if(!dPlaying){
-//                         dPlaying = YES;
-//                         [self sendNoteOnEvent:62 velocity:127];
-//                     }
-//                     break;
-//                     
-//                 case -1:
-//                     if(!gPlaying){
-//                         gPlaying = YES;
-//                         [self sendNoteOnEvent:67 velocity:127];
-//                     }
-//                     break;
-//                     
-//                 case 0:
-//                     if(dPlaying){
-//                         dPlaying = NO;
-//                         [self sendNoteOffEvent:62 velocity:127];
-//                     }
-//                     if(gPlaying){
-//                         gPlaying = NO;
-//                         [self sendNoteOffEvent:67 velocity:127];
-//                     }
-//                     break;
-//                     
-//             }
+             
+             switch(roll){
+    
+                 case 1:
+                     [self sendPitchBendEvent:127 lsb:127];
+                     break;
+                     
+                     break;
+                     
+                 case -1:
+                     [self sendPitchBendEvent:0 lsb:0];
+                     break;
+                     
+                 case 0:
+                     [self sendPitchBendEvent:64 lsb:64];
+                     break;
+             }
              
              switch(yaw){
                      
                  case 0:
-                     noteLabel.text = @"A";
+                     [self changePointedNoteWithCurrent:aStatusLabel];
                      break;
                      
                  case -1:
-                     noteLabel.text = @"B";
+                     [self changePointedNoteWithCurrent:bStatusLabel];
                      break;
                      
                  case -2:
-                     noteLabel.text = @"C";
+                     [self changePointedNoteWithCurrent:cStatusLabel];
                      break;
                      
                  case -3:
-                     noteLabel.text = @"D";
+                     [self changePointedNoteWithCurrent:dStatusLabel];
                      break;
                      
                  case 3:
-                     noteLabel.text = @"E";
+                     [self changePointedNoteWithCurrent:eStatusLabel];
                      break;
                      
                  case 2:
-                     noteLabel.text = @"F";
+                     [self changePointedNoteWithCurrent:fStatusLabel];
                      break;
                      
                  case 1:
-                     noteLabel.text = @"G";
+                     [self changePointedNoteWithCurrent:gStatusLabel];
                      break;
                      
              }
@@ -413,6 +414,7 @@ static void CheckError(OSStatus error, const char *operation) {
              //             }
              
          });
+         
          
 //         CMRotationRate rotRate = data.rotationRate;
 //         dispatch_async(dispatch_get_main_queue(), ^{
@@ -493,6 +495,19 @@ static void CheckError(OSStatus error, const char *operation) {
     
 }
 
+-(void)changePointedNoteWithCurrent:(UILabel*)note{
+    aStatusLabel.backgroundColor = nil;
+    bStatusLabel.backgroundColor = nil;
+    cStatusLabel.backgroundColor = nil;
+    dStatusLabel.backgroundColor = nil;
+    eStatusLabel.backgroundColor = nil;
+    fStatusLabel.backgroundColor = nil;
+    gStatusLabel.backgroundColor = nil;
+    
+    note.backgroundColor = red;
+    
+}
+
 
 
 
@@ -501,12 +516,19 @@ static void CheckError(OSStatus error, const char *operation) {
     [self startDeviceMotion];
     green = [UIColor colorWithRed:0 green:255 blue:0 alpha:1];
     white = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
+    red = [UIColor colorWithRed:255 green:0 blue:0 alpha:1];
     
     NSLog(@"Motion updates began");
     
+    velocity = roundf(velocitySlider.value);
     
+    }
     
-    
+
+
+- (IBAction)sliderValueChanged:(id)sender{
+    velocity = roundf(velocitySlider.value);
+    NSLog(@"value is now %d", velocity);
 }
 
 - (void) viewDidDisappear:(BOOL)animated{

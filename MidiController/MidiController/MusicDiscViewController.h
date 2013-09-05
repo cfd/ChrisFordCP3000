@@ -29,8 +29,7 @@
     BOOL fPlaying;
     BOOL gPlaying;
     BOOL aPlaying;
-    
-    IBOutlet UILabel* noteLabel;
+
     IBOutlet UILabel* aStatusLabel;
     IBOutlet UILabel* bStatusLabel;
     IBOutlet UILabel* cStatusLabel;
@@ -39,18 +38,29 @@
     IBOutlet UILabel* fStatusLabel;
     IBOutlet UILabel* gStatusLabel;
     
+    IBOutlet UISlider* velocitySlider;
+    
     UIColor* green;
     UIColor* white;
+    UIColor* red;
+    
+    int velocity;
     
     
     
 }
 
 
+-(IBAction)sliderValueChanged:(id)sender;
+
+
 -(void) sendMessage:(Byte)status withNote:(Byte)note withVelocity:(Byte)velocity;
 
 -(void) sendNoteOnEvent:(Byte)note velocity:(Byte)velocity;
 -(void) sendNoteOffEvent:(Byte)note velocity:(Byte)velocity;
+-(void) sendPitchBendEvent:(Byte)msb lsb:(Byte)lsb;
+
+-(void)changePointedNoteWithCurrent:(UILabel*)note;
 
 
 - (void) search;
