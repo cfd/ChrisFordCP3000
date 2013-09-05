@@ -7,8 +7,52 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMIDI/CoreMIDI.h>
+#import <CoreMotion/CoreMotion.h>
 
-@interface MIDIPianoViewController : UIViewController
+
+@interface MIDIPianoViewController : UIViewController <NSNetServiceDelegate, NSNetServiceBrowserDelegate>{
+    NSNetServiceBrowser *browser;
+    NSMutableArray *services;
+    
+    MIDINetworkSession *session;
+    MIDIEndpointRef destinationEndpoint;
+    MIDIPortRef outputPort;
+    
+    
+    IBOutlet UISlider *velocityControl;
+    
+    
+    int firstOctave;
+    int masterVelocity;
+    
+    
+}
+
+
+
+
+-(void) sendMessage:(Byte)status withNote:(Byte)note withVelocity:(Byte)velocity;
+
+-(void) sendNoteOnEvent:(Byte)note velocity:(Byte)velocity;
+-(void) sendNoteOffEvent:(Byte)note velocity:(Byte)velocity;
+-(void) sendPitchBendEvent:(Byte)msb lsb:(Byte)lsb;
+
+- (void) search;
+- (void) clearContacts;
+- (void) resolveIPAddress:(NSNetService *)service;
+- (void) configurePort;
+
++ (MIDIPianoViewController*) getInstance;
+
+    
+    
+
+-(IBAction)noteOn:(id)sender;
+-(IBAction)noteOff:(id)sender;
+
+-(IBAction)VelocityChanged:(id)sender;
+
 
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QVC-RS-M8T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PCm-04-vap">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -611,11 +611,559 @@
                     <view key="view" contentMode="scaleToFill" id="eEF-Si-czV">
                         <rect key="frame" x="0.0" y="20" width="568" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLr-rZ-fa4">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="OgX-0u-Gja"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="C" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="2Mh-g5-ezV"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="Nye-6J-tqD"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="S9M-aY-GfE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qy-Ag-cXN">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="MGe-R5-hm3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="D" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="7mP-do-VpO"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="LEP-6A-vPm"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="Bay-Wg-a3a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGK-Ys-XXv">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="8Ik-YO-8k0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="E" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="RKE-Lu-8K2"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="faj-3Y-JG0"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="C10-RI-Gkh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz7-U0-WUv">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="zvB-85-5YK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="F" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="65Z-kD-VfE"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="LIv-AR-2ny"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="ocP-C2-1V0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQD-3i-i6z">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="J7X-lL-sPN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="G" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="Ote-Er-Jo2"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="vCe-JJ-jol"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="Ird-Ad-8N6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kd-Uy-RWD">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="4We-4r-EL7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="A" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="GUx-J0-zzI"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="f6o-42-ABe"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="OvH-Dy-uLu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mt9-o3-oTC">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="AkJ-qv-ZdI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="B" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="CKa-2c-lGP"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="hjY-ua-dLb"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="5gY-Nx-eVR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jn-Lw-BOp">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="8Du-EG-Vhh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="C" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="URp-hd-x3L"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="kv9-oM-9Mv"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="jhI-Dp-2Rb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gF-SB-0mb">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="Zdu-hJ-pSC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="D" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="P0f-tn-xqz"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="nrL-cK-vgf"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="m0h-yx-nPi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTh-Ng-uQQ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="ukZ-ln-om7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="E" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="7FY-M4-1xS"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="rWi-Ps-NtH"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="Yu0-1I-AJ1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekg-sa-Xg8">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="sSi-5x-UGg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="F" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="le8-oZ-bTZ"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="pSt-lu-ZAw"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="P2W-RH-1EG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoK-lb-wC4">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="5HR-Jh-Sbr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="G" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="0RO-5b-RYc"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="JZ7-gZ-pRe"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="lP5-zW-PId"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAO-NL-0ty">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="JeE-8I-7ka"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="A" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="fRb-gP-qd8"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="lVp-MH-v4g"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="0h7-qc-FRB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYA-xe-NQR">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="88i-BD-FwV"/>
+                                    <constraint firstAttribute="width" constant="32" id="Hq1-4U-7Em"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="hYh-f3-KEZ"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="vlN-M0-A37"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="ev7-uB-Oyi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvz-P1-bUu">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="Tlg-E7-KwL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="FVj-1j-Oxw"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="WcB-Fz-lFn"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="wBZ-Za-Sm5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaJ-Ug-PtG">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="ndR-7U-IWi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="1Kr-4n-Ye4"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="Agv-ex-iAY"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="8yb-DG-zWD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QK-5H-yKH">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="aWb-FM-IIg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="SRa-tI-Rgo"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="aze-IM-rsW"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="uIn-Yh-yeN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIG-ii-75O">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="74N-ys-Fne"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="UP8-ny-Kra"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="ddt-mg-5bb"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="unS-GP-puq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mX-Ch-KNF">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="4qO-iE-VYX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="aro-kA-tyv"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="vRI-SC-TMN"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="ULT-5F-vjW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQb-L2-I87">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="gEN-9G-rzb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="eqS-PM-Fvd"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="jQc-p0-e3k"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="olI-Wj-Gmc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vc-Es-XCw">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="dEE-Kn-tAX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="fkH-LC-o2Q"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="jaI-R0-hW5"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="VWF-kq-Gye"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJ5-s3-VnR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="dxP-Cd-6Cb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="rVM-Ej-TI9"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="vlo-eI-g07"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="hRl-9J-4X7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wC3-jz-aF6">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="CNU-3S-vx2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="B" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="L0J-zk-FPQ"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="g6Z-LF-lJS"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="tMf-O3-2g6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZW-ia-aYg">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="hAw-jF-QH5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="C" backgroundImage="whiteKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="Cun-oe-Dtz"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="rk2-ny-LZM"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="J34-uS-mUA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xr9-BV-Fx6">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="fJy-fC-tmA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="blackKey.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchDragExit" id="RSY-jz-N8t"/>
+                                    <action selector="noteOff:" destination="PCm-04-vap" eventType="touchUpInside" id="rd6-3y-W6G"/>
+                                    <action selector="noteOn:" destination="PCm-04-vap" eventType="touchDown" id="E0p-Ig-Fiu"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="127" minValue="0.0" maxValue="127" translatesAutoresizingMaskIntoConstraints="NO" id="UXD-ji-uPD">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="fju-8v-YZ1"/>
+                                </constraints>
+                                <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="VelocityChanged:" destination="PCm-04-vap" eventType="valueChanged" id="gsA-Ax-AoL"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRf-Yl-TPv">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="uED-Hu-0aB"/>
+                                    <constraint firstAttribute="width" constant="31" id="yAF-79-wiX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkI-Vj-New">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="lnW-vh-WBp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.47492781929347827" green="0.20934599872146714" blue="0.0087599191465747624" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wC3-jz-aF6" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="486" id="0qN-BF-nBU"/>
+                            <constraint firstItem="cGK-Ys-XXv" firstAttribute="baseline" secondItem="kz7-U0-WUv" secondAttribute="baseline" type="default" id="1Eu-rp-4WC"/>
+                            <constraint firstItem="NkI-Vj-New" firstAttribute="centerY" secondItem="aRf-Yl-TPv" secondAttribute="centerY" type="default" id="2Q3-vm-bfe"/>
+                            <constraint firstItem="2vc-Es-XCw" firstAttribute="bottom" secondItem="LJ5-s3-VnR" secondAttribute="bottom" type="default" id="5u6-NI-2ja"/>
+                            <constraint firstAttribute="trailing" secondItem="5QK-5H-yKH" secondAttribute="trailing" constant="249" id="7jK-wZ-G4P"/>
+                            <constraint firstItem="yQD-3i-i6z" firstAttribute="baseline" secondItem="8Kd-Uy-RWD" secondAttribute="baseline" type="default" id="8NS-gG-dPK"/>
+                            <constraint firstItem="ekg-sa-Xg8" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="376" id="8WP-ol-ngr"/>
+                            <constraint firstItem="qaJ-Ug-PtG" firstAttribute="bottom" secondItem="3mX-Ch-KNF" secondAttribute="bottom" type="default" id="9I2-eA-os1"/>
+                            <constraint firstItem="2gF-SB-0mb" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="302" id="AHV-Ql-nSH"/>
+                            <constraint firstItem="kz7-U0-WUv" firstAttribute="baseline" secondItem="yQD-3i-i6z" secondAttribute="baseline" type="default" id="B6O-p1-82q"/>
+                            <constraint firstItem="9Qy-Ag-cXN" firstAttribute="baseline" secondItem="WLr-rZ-fa4" secondAttribute="baseline" type="default" id="DZl-BT-SR5"/>
+                            <constraint firstItem="bQb-L2-I87" firstAttribute="bottom" secondItem="3mX-Ch-KNF" secondAttribute="bottom" type="default" id="DwO-I6-Bo5"/>
+                            <constraint firstItem="dIG-ii-75O" firstAttribute="bottom" secondItem="5QK-5H-yKH" secondAttribute="bottom" type="default" id="E8q-ld-plk"/>
+                            <constraint firstItem="qaJ-Ug-PtG" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="139" id="EHM-eW-FX4"/>
+                            <constraint firstItem="9Qy-Ag-cXN" firstAttribute="baseline" secondItem="cGK-Ys-XXv" secondAttribute="baseline" type="default" id="EVp-jN-yVz"/>
+                            <constraint firstItem="fvz-P1-bUu" firstAttribute="bottom" secondItem="YYA-xe-NQR" secondAttribute="bottom" type="default" id="FMw-y1-SjP"/>
+                            <constraint firstItem="fvz-P1-bUu" firstAttribute="bottom" secondItem="qaJ-Ug-PtG" secondAttribute="bottom" type="default" id="Fjm-MV-xJ7"/>
+                            <constraint firstItem="aRf-Yl-TPv" firstAttribute="leading" secondItem="UXD-ji-uPD" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Fud-zV-idp"/>
+                            <constraint firstItem="NTh-Ng-uQQ" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="339" id="GLB-iQ-0uJ"/>
+                            <constraint firstItem="YYA-xe-NQR" firstAttribute="top" secondItem="eEF-Si-czV" secondAttribute="top" constant="72" id="HxF-zu-D76"/>
+                            <constraint firstItem="LJ5-s3-VnR" firstAttribute="bottom" secondItem="Xr9-BV-Fx6" secondAttribute="bottom" type="default" id="JDb-Sa-2BE"/>
+                            <constraint firstItem="8Kd-Uy-RWD" firstAttribute="baseline" secondItem="Mt9-o3-oTC" secondAttribute="baseline" type="default" id="JGY-Uq-tiP"/>
+                            <constraint firstAttribute="trailing" secondItem="LJ5-s3-VnR" secondAttribute="trailing" constant="101" id="JX6-Dj-hty"/>
+                            <constraint firstItem="yQD-3i-i6z" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="154" id="Jpq-o3-mfE"/>
+                            <constraint firstItem="ekg-sa-Xg8" firstAttribute="baseline" secondItem="uoK-lb-wC4" secondAttribute="baseline" type="default" id="Kgg-Rs-6T8"/>
+                            <constraint firstItem="YYA-xe-NQR" firstAttribute="top" secondItem="fvz-P1-bUu" secondAttribute="top" type="default" id="M7f-hf-haf"/>
+                            <constraint firstAttribute="trailing" secondItem="dIG-ii-75O" secondAttribute="trailing" constant="212" id="MnU-yz-dnU"/>
+                            <constraint firstItem="5QK-5H-yKH" firstAttribute="top" secondItem="bQb-L2-I87" secondAttribute="top" type="default" id="Nu8-Ev-N2F"/>
+                            <constraint firstItem="bQb-L2-I87" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="213" id="Pv4-EG-rgb"/>
+                            <constraint firstItem="nZW-ia-aYg" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="523" id="QTD-t7-i9N"/>
+                            <constraint firstItem="WLr-rZ-fa4" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="6" id="TuM-55-SbZ"/>
+                            <constraint firstItem="0jn-Lw-BOp" firstAttribute="baseline" secondItem="Mt9-o3-oTC" secondAttribute="baseline" type="default" id="Tyk-iw-Ilx"/>
+                            <constraint firstItem="0jn-Lw-BOp" firstAttribute="centerX" secondItem="eEF-Si-czV" secondAttribute="centerX" type="default" id="UCU-8v-ZX6"/>
+                            <constraint firstItem="2gF-SB-0mb" firstAttribute="baseline" secondItem="0jn-Lw-BOp" secondAttribute="baseline" type="default" id="UzQ-4W-dRh"/>
+                            <constraint firstItem="kAO-NL-0ty" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="450" id="Y3d-Rr-vJN"/>
+                            <constraint firstItem="UXD-ji-uPD" firstAttribute="top" secondItem="eEF-Si-czV" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Ydw-gw-JMo"/>
+                            <constraint firstItem="9Qy-Ag-cXN" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="43" id="bY1-S4-8dj"/>
+                            <constraint firstItem="Xr9-BV-Fx6" firstAttribute="top" secondItem="LJ5-s3-VnR" secondAttribute="top" type="default" id="c1M-NX-3Ss"/>
+                            <constraint firstItem="fvz-P1-bUu" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="65" id="dR1-Dy-T7K"/>
+                            <constraint firstItem="kAO-NL-0ty" firstAttribute="baseline" secondItem="wC3-jz-aF6" secondAttribute="baseline" type="default" id="fGV-yM-Bx3"/>
+                            <constraint firstItem="2gF-SB-0mb" firstAttribute="baseline" secondItem="NTh-Ng-uQQ" secondAttribute="baseline" type="default" id="hV8-yJ-q8J"/>
+                            <constraint firstItem="NTh-Ng-uQQ" firstAttribute="baseline" secondItem="ekg-sa-Xg8" secondAttribute="baseline" type="default" id="jrs-of-Fwh"/>
+                            <constraint firstItem="3mX-Ch-KNF" firstAttribute="top" secondItem="bQb-L2-I87" secondAttribute="top" type="default" id="kEd-lZ-dDT"/>
+                            <constraint firstAttribute="trailing" secondItem="2vc-Es-XCw" secondAttribute="trailing" constant="138" id="kFj-dU-9vX"/>
+                            <constraint firstItem="wC3-jz-aF6" firstAttribute="baseline" secondItem="nZW-ia-aYg" secondAttribute="baseline" type="default" id="kGS-Ra-lPY"/>
+                            <constraint firstItem="YYA-xe-NQR" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="28" id="m7r-YP-jh1"/>
+                            <constraint firstItem="bQb-L2-I87" firstAttribute="bottom" secondItem="5QK-5H-yKH" secondAttribute="bottom" type="default" id="oLD-HK-hHy"/>
+                            <constraint firstItem="8Kd-Uy-RWD" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="191" id="oML-3C-dUh"/>
+                            <constraint firstItem="kz7-U0-WUv" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="117" id="ou3-1Y-ooD"/>
+                            <constraint firstItem="NkI-Vj-New" firstAttribute="centerX" secondItem="yQD-3i-i6z" secondAttribute="centerX" type="default" id="pF2-xg-Xke"/>
+                            <constraint firstItem="cGK-Ys-XXv" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="80" id="pGH-Ts-Tng"/>
+                            <constraint firstItem="2vc-Es-XCw" firstAttribute="top" secondItem="dIG-ii-75O" secondAttribute="top" type="default" id="pM8-nt-wje"/>
+                            <constraint firstItem="WLr-rZ-fa4" firstAttribute="top" secondItem="eEF-Si-czV" secondAttribute="top" constant="142" id="pxJ-9t-l4j"/>
+                            <constraint firstAttribute="trailing" secondItem="Xr9-BV-Fx6" secondAttribute="trailing" constant="64" id="qJu-mY-PeW"/>
+                            <constraint firstItem="dIG-ii-75O" firstAttribute="top" secondItem="5QK-5H-yKH" secondAttribute="top" type="default" id="qjE-tW-ILU"/>
+                            <constraint firstItem="uoK-lb-wC4" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="413" id="rhS-rH-FLb"/>
+                            <constraint firstItem="UXD-ji-uPD" firstAttribute="leading" secondItem="3mX-Ch-KNF" secondAttribute="leading" type="default" id="sC3-s4-Wcq"/>
+                            <constraint firstItem="kAO-NL-0ty" firstAttribute="baseline" secondItem="uoK-lb-wC4" secondAttribute="baseline" type="default" id="sUx-RG-JMl"/>
+                            <constraint firstItem="LJ5-s3-VnR" firstAttribute="top" secondItem="2vc-Es-XCw" secondAttribute="top" type="default" id="tWb-HI-LQG"/>
+                            <constraint firstItem="UXD-ji-uPD" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="176" id="vJw-yj-Abh"/>
+                            <constraint firstItem="2vc-Es-XCw" firstAttribute="bottom" secondItem="dIG-ii-75O" secondAttribute="bottom" type="default" id="wq3-Pq-I4y"/>
+                            <constraint firstItem="Mt9-o3-oTC" firstAttribute="leading" secondItem="eEF-Si-czV" secondAttribute="leading" constant="228" id="x0H-AG-j9b"/>
+                            <constraint firstItem="qaJ-Ug-PtG" firstAttribute="top" secondItem="3mX-Ch-KNF" secondAttribute="top" type="default" id="xvI-vn-T2d"/>
+                            <constraint firstItem="fvz-P1-bUu" firstAttribute="top" secondItem="qaJ-Ug-PtG" secondAttribute="top" type="default" id="y5x-AX-DMe"/>
+                            <constraint firstItem="aRf-Yl-TPv" firstAttribute="centerY" secondItem="UXD-ji-uPD" secondAttribute="centerY" type="default" id="y7N-EV-C7i"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="velocityControl" destination="UXD-ji-uPD" id="m5b-YJ-Pd2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nwb-l1-M6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -739,6 +1287,10 @@
             <point key="canvasLocation" x="-4142" y="280"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blackKey.png" width="32" height="140"/>
+        <image name="whiteKey.png" width="38" height="178"/>
+    </resources>
     <classes>
         <class className="BetterMidiViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BetterMidiViewController.h"/>
@@ -749,6 +1301,12 @@
         </class>
         <class className="MIDIPianoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MIDIPianoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="VelocityChanged:"/>
+                <relationship kind="action" name="noteOff:"/>
+                <relationship kind="action" name="noteOn:"/>
+                <relationship kind="outlet" name="velocityControl" candidateClass="UISlider"/>
+            </relationships>
         </class>
         <class className="MidiViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MidiViewController.h"/>
