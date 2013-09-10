@@ -173,14 +173,14 @@ static void CheckError(OSStatus error, const char *operation) {
 
 
 -(IBAction)noteOn:(id)sender{
-    int midiNum = firstOctave + [sender tag];
+    int midiNum = lowCMIDIConstant + [sender tag];
     NSLog(@"%d ON", midiNum);
     [self sendNoteOnEvent:midiNum velocity:masterVelocity];
 }
 
 
 -(IBAction)noteOff:(id)sender{
-    int midiNum = firstOctave + [sender tag];
+    int midiNum = lowCMIDIConstant + [sender tag];
     NSLog(@"%d OFF", midiNum);
     [self sendNoteOffEvent:midiNum velocity:masterVelocity];
 }
@@ -191,6 +191,103 @@ static void CheckError(OSStatus error, const char *operation) {
 }
 
 
+- (CMMotionManager *)motionManager{
+    CMMotionManager *motionManager = nil;
+    id appDelegate = [UIApplication sharedApplication].delegate;
+    
+    if([appDelegate respondsToSelector:@selector(motionManager)]) {
+        motionManager = [appDelegate motionManager];
+    }
+    return motionManager;
+}
+
+- (void)startDeviceMotion{
+    
+    [self.motionManager startDeviceMotionUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:^(CMDeviceMotion *data,NSError *error)
+     {
+         CMAttitude *attitude = data.attitude;
+         
+         int pitch = roundf(attitude.pitch);
+         int roll = roundf(attitude.roll);
+         int yaw = roundf(attitude.yaw);
+         
+         dispatch_async(dispatch_get_main_queue(), ^{
+             //NSLog(@"%d %d %d", pitch, roll, yaw);
+             
+             
+             
+             switch (roll) {
+                 //bend high
+                 case 1:
+                     if(!bent){
+                         [self sendPitchBendEvent:127 lsb:127];
+                         bent = YES;
+                     }
+                     break;
+                 //bend low
+                 case -1:
+                     if(!bent){
+                         [self sendPitchBendEvent:0 lsb:0];
+                         bent = YES;
+                     }
+                     
+                     break;
+                     //return normal pitch
+                 case 0:
+                     if(bent){
+                         [self sendPitchBendEvent:64 lsb:64];
+                         bent = NO;
+                     }
+                     break;
+             }
+             
+             switch (pitch) {
+                     
+                     //move up an octave
+                 case 1:
+                     if(firstOctave < 5){
+                         if(!moving){
+                             ++firstOctave;
+                             NSLog(@"lowC = %d", firstOctave);
+                             [self updateOctaveLabels];
+                             lowCMIDIConstant += 12;
+                             moving = YES;
+                         }
+                     }
+                     break;
+                     //move down an octave
+                 case -1:
+                     if(firstOctave > 0){
+                         if(!moving){
+                             --firstOctave;
+                             NSLog(@"lowC = %d", firstOctave);
+                             [self updateOctaveLabels];
+                             lowCMIDIConstant -= 12;
+                             moving= YES;
+                         }
+                     }
+                     
+                     break;
+                     //stop moving
+                 case 0:
+                     if(moving){
+                         moving = NO;
+                     }
+                     break;
+             }
+             
+             
+             
+             
+         });
+     }];
+     }
+
+
+- (void)updateOctaveLabels {
+    leftOctave.text = [NSString stringWithFormat:@"C%d", firstOctave];
+    rightOctave.text = [NSString stringWithFormat:@"C%d", (firstOctave+1)];
+}
 
 -(void) sendNoteOnEvent:(Byte)note velocity:(Byte)vel {
     [self sendMessage:0x90 withNote:note withVelocity:vel];
@@ -213,8 +310,10 @@ static void CheckError(OSStatus error, const char *operation) {
     [self search];
     
     
-
-    firstOctave = 60;
+    lowCMIDIConstant = 60;
+    firstOctave = 3;
+    leftOctave.text = @"C3";
+    rightOctave.text = @"C4";
     
     //[self setWantsFullScreenLayout:YES];
 	// Do any additional setup after loading the view.
@@ -227,11 +326,14 @@ static void CheckError(OSStatus error, const char *operation) {
     masterVelocity = roundf(velocityControl.value);
     NSLog(@"vel: %d", masterVelocity);
     
+    [self startDeviceMotion];
+    
+    
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    
+    [self.motionManager stopDeviceMotionUpdates];
 }
 
 - (void)didReceiveMemoryWarning

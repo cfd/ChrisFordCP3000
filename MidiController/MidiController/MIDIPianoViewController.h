@@ -21,10 +21,14 @@
     
     
     IBOutlet UISlider *velocityControl;
-    
+    IBOutlet UILabel *leftOctave;
+    IBOutlet UILabel *rightOctave;
     
     int firstOctave;
+    int lowCMIDIConstant;
     int masterVelocity;
+    BOOL bent;
+    BOOL moving;
     
     
 }
