@@ -563,7 +563,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.2156418222288069" green="0.30357058105174328" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dAI-eV-0kB" secondAttribute="bottom" constant="219" id="0WO-MX-rFu"/>
                             <constraint firstItem="8iS-o4-XTq" firstAttribute="top" secondItem="elL-zd-4FA" secondAttribute="top" constant="163" id="1Mc-3d-6Gl"/>
                             <constraint firstItem="ys4-qf-hw5" firstAttribute="baseline" secondItem="1bX-4Y-PC6" secondAttribute="baseline" type="default" id="3Q7-se-JO3"/>
                             <constraint firstItem="8Rh-d2-rh8" firstAttribute="centerX" secondItem="elL-zd-4FA" secondAttribute="centerX" type="default" id="CAp-xA-a6Z"/>
@@ -577,6 +576,7 @@
                             <constraint firstItem="ys4-qf-hw5" firstAttribute="top" secondItem="elL-zd-4FA" secondAttribute="top" constant="212" id="cNB-AR-qzL"/>
                             <constraint firstAttribute="trailing" secondItem="1bX-4Y-PC6" secondAttribute="trailing" constant="67" id="cqE-C7-CgK"/>
                             <constraint firstAttribute="trailing" secondItem="89b-hn-S3d" secondAttribute="trailing" constant="104" id="dgp-4h-ool"/>
+                            <constraint firstItem="89b-hn-S3d" firstAttribute="centerY" secondItem="elL-zd-4FA" secondAttribute="centerY" type="default" id="eSu-Vq-E9Z"/>
                             <constraint firstAttribute="bottom" secondItem="69a-kp-HHD" secondAttribute="bottom" constant="128" id="f3V-w9-enJ"/>
                             <constraint firstAttribute="trailing" secondItem="6OP-rh-9wU" secondAttribute="trailing" constant="87" id="kw7-ft-Ipp"/>
                             <constraint firstItem="gDT-PX-qrc" firstAttribute="top" secondItem="elL-zd-4FA" secondAttribute="top" constant="123" id="oqE-Dd-Kkc"/>
@@ -1295,6 +1295,64 @@
         <image name="blackKey.png" width="32" height="140"/>
         <image name="whiteKey.png" width="38" height="178"/>
     </resources>
+    <classes>
+        <class className="BetterMidiViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BetterMidiViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handleKeyDown:"/>
+                <relationship kind="action" name="handleKeyUp:"/>
+            </relationships>
+        </class>
+        <class className="MIDIPianoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MIDIPianoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="VelocityChanged:"/>
+                <relationship kind="action" name="noteOff:"/>
+                <relationship kind="action" name="noteOn:"/>
+                <relationship kind="outlet" name="leftOctave" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rightOctave" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="velocityControl" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="MidiViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MidiViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handleKeyDown:"/>
+                <relationship kind="action" name="handleKeyUp:"/>
+            </relationships>
+        </class>
+        <class className="MotionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MotionViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="accX" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="accY" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="accZ" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gyroX" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gyroY" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gyroZ" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MusicDiscViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MusicDiscViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sliderValueChanged:"/>
+                <relationship kind="outlet" name="aStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="eStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="velocitySlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RawAccelerometerMidiViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RawAccelerometerMidiViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
