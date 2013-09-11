@@ -1166,7 +1166,7 @@
                     <connections>
                         <outlet property="leftOctave" destination="OMT-8s-fke" id="Yjk-Zn-x9h"/>
                         <outlet property="rightOctave" destination="XY5-RE-b2T" id="SIF-5i-F2X"/>
-                        <outlet property="velocityControl" destination="UXD-ji-uPD" id="m5b-YJ-Pd2"/>
+                        <outlet property="velocityControl" destination="UXD-ji-uPD" id="7CF-I3-P0Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nwb-l1-M6T" userLabel="First Responder" sceneMemberID="firstResponder"/>

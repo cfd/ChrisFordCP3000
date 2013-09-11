@@ -212,7 +212,7 @@ static void CheckError(OSStatus error, const char *operation) {
          int yaw = roundf(attitude.yaw);
          
          dispatch_async(dispatch_get_main_queue(), ^{
-             //NSLog(@"%d %d %d", pitch, roll, yaw);
+             NSLog(@"%d %d %d", pitch, roll, yaw);
              
              
              
