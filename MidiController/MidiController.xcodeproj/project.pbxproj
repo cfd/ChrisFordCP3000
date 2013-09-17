@@ -29,6 +29,7 @@
 		83DB8C5617C0B57700FAB4DE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83DB8C5517C0B57700FAB4DE /* Storyboard.storyboard */; };
 		83DB8C5917C0B64000FAB4DE /* MotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB8C5817C0B64000FAB4DE /* MotionViewController.m */; };
 		83DB8C5B17C0BA6400FAB4DE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DB8C5A17C0BA6400FAB4DE /* CoreMotion.framework */; };
+		83E2C53917E8735C004B9DEC /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E2C53817E8735B004B9DEC /* iPadStoryboard.storyboard */; };
 		83E57A5A17D5A589008620A2 /* CubeWithAttitudeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E57A5917D5A589008620A2 /* CubeWithAttitudeViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		83DB8C5717C0B64000FAB4DE /* MotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionViewController.h; sourceTree = "<group>"; };
 		83DB8C5817C0B64000FAB4DE /* MotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionViewController.m; sourceTree = "<group>"; };
 		83DB8C5A17C0BA6400FAB4DE /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		83E2C53817E8735B004B9DEC /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		83E57A5817D5A589008620A2 /* CubeWithAttitudeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeWithAttitudeViewController.h; sourceTree = "<group>"; };
 		83E57A5917D5A589008620A2 /* CubeWithAttitudeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeWithAttitudeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 		8374BDD217BB57E400B050F8 = {
 			isa = PBXGroup;
 			children = (
+				83E2C53817E8735B004B9DEC /* iPadStoryboard.storyboard */,
 				83DB8C5517C0B57700FAB4DE /* Storyboard.storyboard */,
 				8374BDE417BB57E400B050F8 /* MidiController */,
 				8374BDDD17BB57E400B050F8 /* Frameworks */,
@@ -218,6 +221,7 @@
 				83DB8C5617C0B57700FAB4DE /* Storyboard.storyboard in Resources */,
 				83AFDB5417D8E44C00249385 /* whiteKey.png in Resources */,
 				836E308617D8E6F800DE2543 /* blackKey.png in Resources */,
+				83E2C53917E8735C004B9DEC /* iPadStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +321,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MidiController/MidiController-Prefix.pch";
 				INFOPLIST_FILE = "MidiController/MidiController-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -328,7 +334,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MidiController/MidiController-Prefix.pch";
 				INFOPLIST_FILE = "MidiController/MidiController-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

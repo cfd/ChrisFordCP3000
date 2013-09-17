@@ -22,36 +22,48 @@
     MIDINetworkSession *session;
     MIDIEndpointRef destinationEndpoint;
     MIDIPortRef outputPort;
-    BOOL bPlaying;
+    
     BOOL cPlaying;
+    BOOL cSharpPlaying;
     BOOL dPlaying;
+    BOOL dSharpPlaying;
     BOOL ePlaying;
     BOOL fPlaying;
+    BOOL fSharpPlaying;
     BOOL gPlaying;
+    BOOL gSharpPlaying;
     BOOL aPlaying;
+    BOOL aSharpPlaying;
+    BOOL bPlaying;
     
-    IBOutlet UILabel* aStatusLabel;
-    IBOutlet UILabel* bStatusLabel;
+    
     IBOutlet UILabel* cStatusLabel;
+    IBOutlet UILabel* cSharpStatusLabel;
     IBOutlet UILabel* dStatusLabel;
+    IBOutlet UILabel* dSharpStatusLabel;
     IBOutlet UILabel* eStatusLabel;
     IBOutlet UILabel* fStatusLabel;
+    IBOutlet UILabel* fSharpStatusLabel;
     IBOutlet UILabel* gStatusLabel;
-    
+    IBOutlet UILabel* gSharpStatusLabel;
+    IBOutlet UILabel* aStatusLabel;
+    IBOutlet UILabel* aSharpStatusLabel;
+    IBOutlet UILabel* bStatusLabel;
+
     IBOutlet UISlider* velocitySlider;
     
     UIColor* green;
     UIColor* white;
     UIColor* red;
     
-    int velocity;
+    int masterVelocity;
     
     
     
 }
 
 
--(IBAction)sliderValueChanged:(id)sender;
+-(IBAction)velocityChanged:(id)sender;
 
 
 -(void) sendMessage:(Byte)status withNote:(Byte)note withVelocity:(Byte)velocity;
@@ -67,6 +79,7 @@
 - (void) clearContacts;
 - (void) resolveIPAddress:(NSNetService *)service;
 - (void) configurePort;
+
 
 + (GyrophoneMIDIViewController*) getInstance;
 
