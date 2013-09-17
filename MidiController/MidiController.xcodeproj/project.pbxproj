@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		830468DB17C5D1F8008F01A1 /* BetterMidiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830468DA17C5D1F8008F01A1 /* BetterMidiViewController.m */; };
+		8337015E17E801070035F696 /* GryophoneMIDIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8337015D17E801070035F696 /* GryophoneMIDIViewController.m */; };
 		835D150117C1C41E002C2C69 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D150017C1C41E002C2C69 /* CoreMIDI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		835D150417C1C437002C2C69 /* MidiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D150317C1C437002C2C69 /* MidiViewController.m */; };
 		836E308617D8E6F800DE2543 /* blackKey.png in Resources */ = {isa = PBXBuildFile; fileRef = 836E308517D8E6F800DE2543 /* blackKey.png */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		830468D917C5D1F8008F01A1 /* BetterMidiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetterMidiViewController.h; sourceTree = "<group>"; };
 		830468DA17C5D1F8008F01A1 /* BetterMidiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetterMidiViewController.m; sourceTree = "<group>"; };
+		8337015C17E801070035F696 /* GryophoneMIDIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GryophoneMIDIViewController.h; sourceTree = "<group>"; };
+		8337015D17E801070035F696 /* GryophoneMIDIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GryophoneMIDIViewController.m; sourceTree = "<group>"; };
 		835D150017C1C41E002C2C69 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		835D150217C1C437002C2C69 /* MidiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiViewController.h; sourceTree = "<group>"; };
 		835D150317C1C437002C2C69 /* MidiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiViewController.m; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				83B419CA17D620CD00BB07EF /* MusicDiscViewController.m */,
 				83AFDB4E17D8D8DE00249385 /* MIDIPianoViewController.h */,
 				83AFDB4F17D8D8DE00249385 /* MIDIPianoViewController.m */,
+				8337015C17E801070035F696 /* GryophoneMIDIViewController.h */,
+				8337015D17E801070035F696 /* GryophoneMIDIViewController.m */,
 				8374BDE517BB57E400B050F8 /* Supporting Files */,
 			);
 			path = MidiController;
@@ -232,6 +237,7 @@
 				83E57A5A17D5A589008620A2 /* CubeWithAttitudeViewController.m in Sources */,
 				83B419CB17D620CD00BB07EF /* MusicDiscViewController.m in Sources */,
 				83AFDB5017D8D8DE00249385 /* MIDIPianoViewController.m in Sources */,
+				8337015E17E801070035F696 /* GryophoneMIDIViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
