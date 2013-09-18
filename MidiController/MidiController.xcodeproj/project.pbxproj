@@ -26,6 +26,8 @@
 		83AFDB5017D8D8DE00249385 /* MIDIPianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFDB4F17D8D8DE00249385 /* MIDIPianoViewController.m */; };
 		83AFDB5417D8E44C00249385 /* whiteKey.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AFDB5317D8E44C00249385 /* whiteKey.png */; };
 		83B419CB17D620CD00BB07EF /* MusicDiscViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B419CA17D620CD00BB07EF /* MusicDiscViewController.m */; };
+		83CD774D17E9CE42004A5113 /* MusicCubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD774C17E9CE42004A5113 /* MusicCubeViewController.m */; };
+		83CD774F17E9F6E4004A5113 /* CubeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 83CD774E17E9F6E4004A5113 /* CubeButton.png */; };
 		83DB8C5617C0B57700FAB4DE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83DB8C5517C0B57700FAB4DE /* Storyboard.storyboard */; };
 		83DB8C5917C0B64000FAB4DE /* MotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB8C5817C0B64000FAB4DE /* MotionViewController.m */; };
 		83DB8C5B17C0BA6400FAB4DE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DB8C5A17C0BA6400FAB4DE /* CoreMotion.framework */; };
@@ -63,6 +65,9 @@
 		83AFDB5317D8E44C00249385 /* whiteKey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteKey.png; sourceTree = "<group>"; };
 		83B419C917D620CD00BB07EF /* MusicDiscViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicDiscViewController.h; sourceTree = "<group>"; };
 		83B419CA17D620CD00BB07EF /* MusicDiscViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicDiscViewController.m; sourceTree = "<group>"; };
+		83CD774B17E9CE42004A5113 /* MusicCubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicCubeViewController.h; sourceTree = "<group>"; };
+		83CD774C17E9CE42004A5113 /* MusicCubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicCubeViewController.m; sourceTree = "<group>"; };
+		83CD774E17E9F6E4004A5113 /* CubeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CubeButton.png; sourceTree = "<group>"; };
 		83DB8C5517C0B57700FAB4DE /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		83DB8C5717C0B64000FAB4DE /* MotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionViewController.h; sourceTree = "<group>"; };
 		83DB8C5817C0B64000FAB4DE /* MotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionViewController.m; sourceTree = "<group>"; };
@@ -142,6 +147,8 @@
 				83AFDB4F17D8D8DE00249385 /* MIDIPianoViewController.m */,
 				8337015C17E801070035F696 /* GryophoneMIDIViewController.h */,
 				8337015D17E801070035F696 /* GryophoneMIDIViewController.m */,
+				83CD774B17E9CE42004A5113 /* MusicCubeViewController.h */,
+				83CD774C17E9CE42004A5113 /* MusicCubeViewController.m */,
 				8374BDE517BB57E400B050F8 /* Supporting Files */,
 			);
 			path = MidiController;
@@ -150,6 +157,7 @@
 		8374BDE517BB57E400B050F8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83CD774E17E9F6E4004A5113 /* CubeButton.png */,
 				836E308517D8E6F800DE2543 /* blackKey.png */,
 				83AFDB5317D8E44C00249385 /* whiteKey.png */,
 				8374BDE617BB57E400B050F8 /* MidiController-Info.plist */,
@@ -222,6 +230,7 @@
 				83AFDB5417D8E44C00249385 /* whiteKey.png in Resources */,
 				836E308617D8E6F800DE2543 /* blackKey.png in Resources */,
 				83E2C53917E8735C004B9DEC /* iPadStoryboard.storyboard in Resources */,
+				83CD774F17E9F6E4004A5113 /* CubeButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +251,7 @@
 				83B419CB17D620CD00BB07EF /* MusicDiscViewController.m in Sources */,
 				83AFDB5017D8D8DE00249385 /* MIDIPianoViewController.m in Sources */,
 				8337015E17E801070035F696 /* GryophoneMIDIViewController.m in Sources */,
+				83CD774D17E9CE42004A5113 /* MusicCubeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

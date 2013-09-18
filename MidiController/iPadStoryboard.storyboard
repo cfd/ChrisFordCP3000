@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="X3T-pA-1m2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="X3T-pA-1m2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -107,7 +107,7 @@
                                     <constraint firstAttribute="width" constant="70" id="Cxl-uK-FCo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="A" backgroundImage="whiteKey.png">
+                                <state key="normal" title="s" backgroundImage="whiteKey.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -494,6 +494,7 @@
                             <constraint firstItem="OvV-Si-EoN" firstAttribute="top" secondItem="aoH-Hh-Wrf" secondAttribute="top" constant="36" id="1ON-n5-Jye"/>
                             <constraint firstItem="QUC-YS-xk4" firstAttribute="bottom" secondItem="rLJ-VN-Bt9" secondAttribute="bottom" type="default" id="2y0-et-0RB"/>
                             <constraint firstItem="Gip-ai-aUu" firstAttribute="top" secondItem="kJG-oY-RyT" secondAttribute="top" type="default" id="47H-4P-nQa"/>
+                            <constraint firstItem="c8w-Rt-coW" firstAttribute="centerY" secondItem="P7e-ex-TDg" secondAttribute="centerY" type="default" id="4Gk-Bh-Yq1"/>
                             <constraint firstItem="85r-Kg-Tge" firstAttribute="bottom" secondItem="mwP-dP-FXl" secondAttribute="bottom" type="default" id="4qw-eg-2FL"/>
                             <constraint firstItem="ctX-5a-3LT" firstAttribute="leading" secondItem="aoH-Hh-Wrf" secondAttribute="leading" constant="359" id="59I-9s-b0y"/>
                             <constraint firstItem="hfd-0g-DBt" firstAttribute="top" secondItem="MAX-wN-rLS" secondAttribute="top" type="default" id="5K3-gV-Zfc"/>
@@ -528,7 +529,6 @@
                             <constraint firstItem="rL1-ZU-juI" firstAttribute="leading" secondItem="aoH-Hh-Wrf" secondAttribute="leading" constant="553" id="QWN-JP-TtJ"/>
                             <constraint firstItem="Gip-ai-aUu" firstAttribute="leading" secondItem="aoH-Hh-Wrf" secondAttribute="leading" constant="516" id="RgJ-Ff-X1b"/>
                             <constraint firstItem="mwP-dP-FXl" firstAttribute="leading" secondItem="aoH-Hh-Wrf" secondAttribute="leading" constant="100" id="SJc-Jo-nIZ"/>
-                            <constraint firstItem="c8w-Rt-coW" firstAttribute="bottom" secondItem="OvV-Si-EoN" secondAttribute="bottom" type="default" id="SMM-OG-E44"/>
                             <constraint firstItem="85r-Kg-Tge" firstAttribute="leading" secondItem="aoH-Hh-Wrf" secondAttribute="leading" constant="165" id="Smg-69-HZ5"/>
                             <constraint firstItem="qcn-Rf-mkF" firstAttribute="leading" secondItem="aoH-Hh-Wrf" secondAttribute="leading" constant="192" id="TYN-it-WOd"/>
                             <constraint firstItem="lLw-As-rZy" firstAttribute="leading" secondItem="aoH-Hh-Wrf" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VWb-43-2BT"/>
