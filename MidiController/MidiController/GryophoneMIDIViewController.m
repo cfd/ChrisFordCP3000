@@ -211,14 +211,14 @@ static void CheckError(OSStatus error, const char *operation) {
          CMAttitude *attitude = data.attitude;
          
          dispatch_async(dispatch_get_main_queue(), ^{
-             int pitch = roundf(attitude.pitch);
-             int roll = roundf(attitude.roll);
-             int yaw = roundf(attitude.yaw);
+             //int pitch = roundf(attitude.pitch);
+             //int roll = roundf(attitude.roll);
+             //int yaw = roundf(attitude.yaw);
              //NSLog(@"%d   %d   %d", pitch, roll, yaw);
              //NSLog(@"%f", attitude.pitch);
              
-             int notePosition = [self roundYaw:attitude.yaw];
-             int noteControl = [self roundPitch:attitude.pitch];
+             notePosition = [self roundYaw:attitude.yaw];
+             //int noteControl = [self roundPitch:attitude.pitch];
              
              switch(notePosition){
                  case 1:
@@ -274,224 +274,234 @@ static void CheckError(OSStatus error, const char *operation) {
              }
              
              
-             switch(noteControl){
-                 case 1:
-                     switch(notePosition){
-                         case 1:
-                             if(!cPlaying){
-                                 cPlaying = YES;
-                                 cStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:60 velocity:masterVelocity];
-                             }
-                             break;
-                         case 2:
-                             if(!cSharpPlaying){
-                                 cSharpPlaying = YES;
-                                 cSharpStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:61 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 3:
-                             if(!dPlaying){
-                                 dPlaying = YES;
-                                 dStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:62 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 4:
-                             if(!dSharpPlaying){
-                                 dSharpPlaying = YES;
-                                 dSharpStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:63 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 5:
-                             if(!ePlaying){
-                                 ePlaying = YES;
-                                 eStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:64 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 6:
-                             if(!fPlaying){
-                                 fPlaying = YES;
-                                 fStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:65 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 7:
-                             if(!fSharpPlaying){
-                                 fSharpPlaying = YES;
-                                 fSharpStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:66 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 8:
-                             if(!gPlaying){
-                                 gPlaying = YES;
-                                 gStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:67 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 9:
-                             if(!gSharpPlaying){
-                                 gSharpPlaying = YES;
-                                 gSharpStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:68 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 10:
-                             if(!aPlaying){
-                                 aPlaying = YES;
-                                 aStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:69 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 11:
-                             if(!aSharpPlaying){
-                                 aSharpPlaying = YES;
-                                 aSharpStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:70 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 12:
-                             if(!bPlaying){
-                                 bPlaying = YES;
-                                 bStatusLabel.textColor = green;
-                                 [self sendNoteOnEvent:71 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                     }
-                     break;
-                 case 2:
-                     switch(notePosition){
-                         case 1:
-                             if(cPlaying){
-                                 cPlaying = NO;
-                                 cStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:60 velocity:masterVelocity];
-                             }
-                             break;
-                         case 2:
-                             if(cSharpPlaying){
-                                 cSharpPlaying = NO;
-                                 cSharpStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:61 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 3:
-                             if(dPlaying){
-                                 dPlaying = NO;
-                                 dStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:62 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 4:
-                             if(dSharpPlaying){
-                                 dSharpPlaying = NO;
-                                 dSharpStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:63 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 5:
-                             if(ePlaying){
-                                 ePlaying = NO;
-                                 eStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:64 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 6:
-                             if(fPlaying){
-                                 fPlaying = NO;
-                                 fStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:65 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 7:
-                             if(fSharpPlaying){
-                                 fSharpPlaying = NO;
-                                 fSharpStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:66 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 8:
-                             if(gPlaying){
-                                 gPlaying = NO;
-                                 gStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:67 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 9:
-                             if(gSharpPlaying){
-                                 gSharpPlaying = NO;
-                                 gSharpStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:68 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 10:
-                             if(aPlaying){
-                                 aPlaying = NO;
-                                 aStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:69 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 11:
-                             if(aSharpPlaying){
-                                 aSharpPlaying = NO;
-                                 aSharpStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:70 velocity:masterVelocity];
-                             }
-                             break;
-                             
-                         case 12:
-                             if(bPlaying){
-                                 bPlaying = NO;
-                                 bStatusLabel.textColor = white;
-                                 [self sendNoteOffEvent:71 velocity:masterVelocity];
-                             }
-                             
-                     }
-                     break;
-                     
-             }
+//             switch(noteControl){
+//                 case 1:
+//                     switch(notePosition){
+//                         case 1:
+//                             if(!cPlaying){
+//                                 cPlaying = YES;
+//                                 cStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:60 velocity:masterVelocity];
+//                             }
+//                             break;
+//                         case 2:
+//                             if(!cSharpPlaying){
+//                                 cSharpPlaying = YES;
+//                                 cSharpStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:61 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 3:
+//                             if(!dPlaying){
+//                                 dPlaying = YES;
+//                                 dStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:62 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 4:
+//                             if(!dSharpPlaying){
+//                                 dSharpPlaying = YES;
+//                                 dSharpStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:63 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 5:
+//                             if(!ePlaying){
+//                                 ePlaying = YES;
+//                                 eStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:64 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 6:
+//                             if(!fPlaying){
+//                                 fPlaying = YES;
+//                                 fStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:65 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 7:
+//                             if(!fSharpPlaying){
+//                                 fSharpPlaying = YES;
+//                                 fSharpStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:66 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 8:
+//                             if(!gPlaying){
+//                                 gPlaying = YES;
+//                                 gStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:67 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 9:
+//                             if(!gSharpPlaying){
+//                                 gSharpPlaying = YES;
+//                                 gSharpStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:68 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 10:
+//                             if(!aPlaying){
+//                                 aPlaying = YES;
+//                                 aStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:69 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 11:
+//                             if(!aSharpPlaying){
+//                                 aSharpPlaying = YES;
+//                                 aSharpStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:70 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 12:
+//                             if(!bPlaying){
+//                                 bPlaying = YES;
+//                                 bStatusLabel.textColor = green;
+//                                 [self sendNoteOnEvent:71 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                     }
+//                     break;
+//                 case 2:
+//                     switch(notePosition){
+//                         case 1:
+//                             if(cPlaying){
+//                                 cPlaying = NO;
+//                                 cStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:60 velocity:masterVelocity];
+//                             }
+//                             break;
+//                         case 2:
+//                             if(cSharpPlaying){
+//                                 cSharpPlaying = NO;
+//                                 cSharpStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:61 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 3:
+//                             if(dPlaying){
+//                                 dPlaying = NO;
+//                                 dStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:62 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 4:
+//                             if(dSharpPlaying){
+//                                 dSharpPlaying = NO;
+//                                 dSharpStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:63 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 5:
+//                             if(ePlaying){
+//                                 ePlaying = NO;
+//                                 eStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:64 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 6:
+//                             if(fPlaying){
+//                                 fPlaying = NO;
+//                                 fStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:65 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 7:
+//                             if(fSharpPlaying){
+//                                 fSharpPlaying = NO;
+//                                 fSharpStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:66 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 8:
+//                             if(gPlaying){
+//                                 gPlaying = NO;
+//                                 gStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:67 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 9:
+//                             if(gSharpPlaying){
+//                                 gSharpPlaying = NO;
+//                                 gSharpStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:68 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 10:
+//                             if(aPlaying){
+//                                 aPlaying = NO;
+//                                 aStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:69 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 11:
+//                             if(aSharpPlaying){
+//                                 aSharpPlaying = NO;
+//                                 aSharpStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:70 velocity:masterVelocity];
+//                             }
+//                             break;
+//                             
+//                         case 12:
+//                             if(bPlaying){
+//                                 bPlaying = NO;
+//                                 bStatusLabel.textColor = white;
+//                                 [self sendNoteOffEvent:71 velocity:masterVelocity];
+//                             }
+//                             
+//                     }
+//                     break;
+//                     
+//             }
              
          });
      }];
 }
 
--(int)roundPitch:(float)pitch{
-    NSLog(@"%f", pitch);
-    int onOffNumber=0;
-    
-    if(pitch >= 0.3){
-        onOffNumber = 2;
-    }
-    else if(pitch <= -0.3){
-        onOffNumber = 1;
-    }
-    NSLog(@"%d", onOffNumber);
-    return onOffNumber;
+-(IBAction)playButtonPressed:(id)sender{
+    [self sendNoteOnEvent:60+notePosition-1 velocity:masterVelocity];
 }
+
+
+-(IBAction)playButtonReleased:(id)sender{
+    [self sendNoteOffEvent:60+notePosition-1 velocity:masterVelocity];
+    
+}
+
+//-(int)roundPitch:(float)pitch{
+//    NSLog(@"%f", pitch);
+//    int onOffNumber=0;
+//    
+//    if(pitch >= 0.3){
+//        onOffNumber = 2;
+//    }
+//    else if(pitch <= -0.3){
+//        onOffNumber = 1;
+//    }
+//    NSLog(@"%d", onOffNumber);
+//    return onOffNumber;
+//}
 
 -(int)roundYaw:(float)yaw{
     //NSLog(@"%f", yaw);
@@ -553,6 +563,7 @@ static void CheckError(OSStatus error, const char *operation) {
     bStatusLabel.backgroundColor = nil;
     
     note.backgroundColor = red;
+    
     
 }
 

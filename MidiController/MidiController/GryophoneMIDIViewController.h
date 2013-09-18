@@ -57,11 +57,13 @@
     UIColor* red;
     
     int masterVelocity;
+    int notePosition;
     
     
     
 }
 
+-(IBAction)playButtonPressed:(id)sender;
 
 -(IBAction)velocityChanged:(id)sender;
 

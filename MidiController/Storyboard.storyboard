@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QZm-da-wkY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PCm-04-vap">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -714,38 +714,59 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHQ-PG-lNv">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="gm9-QT-eHW"/>
+                                    <constraint firstAttribute="width" constant="84" id="wa6-go-qTf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="QZm-da-wkY" eventType="touchDown" id="g6f-WO-lQK"/>
+                                    <action selector="playButtonReleased:" destination="QZm-da-wkY" eventType="touchDragExit" id="0Di-vb-xup"/>
+                                    <action selector="playButtonReleased:" destination="QZm-da-wkY" eventType="touchUpInside" id="veG-Ve-Yum"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.54761677936795439" green="0.033604828932574216" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="5eA-nZ-bzx" firstAttribute="top" secondItem="AuD-KW-Ad3" secondAttribute="top" constant="155" id="3Mh-sm-jwQ"/>
+                            <constraint firstItem="tHQ-PG-lNv" firstAttribute="leading" secondItem="AuD-KW-Ad3" secondAttribute="leading" constant="122" id="4jv-8r-vEn"/>
+                            <constraint firstItem="tHQ-PG-lNv" firstAttribute="top" secondItem="ucg-6f-lXO" secondAttribute="top" type="default" id="5nC-Q1-HWv"/>
                             <constraint firstItem="K7W-9l-L7w" firstAttribute="leading" secondItem="AuD-KW-Ad3" secondAttribute="leading" constant="89" id="7nG-xk-flN"/>
                             <constraint firstItem="1cn-29-ywC" firstAttribute="top" secondItem="KZs-ah-KKX" secondAttribute="top" type="default" id="7nq-pv-3qN"/>
-                            <constraint firstItem="KZs-ah-KKX" firstAttribute="leading" secondItem="AuD-KW-Ad3" secondAttribute="leading" constant="104" id="942-gK-kEj"/>
                             <constraint firstItem="ucg-6f-lXO" firstAttribute="leading" secondItem="AuD-KW-Ad3" secondAttribute="leading" constant="34" id="9fg-1e-iLO"/>
                             <constraint firstItem="MIv-wK-MEw" firstAttribute="baseline" secondItem="K7W-9l-L7w" secondAttribute="baseline" type="default" id="A4o-4N-o1J"/>
-                            <constraint firstItem="fOx-5y-zGg" firstAttribute="top" secondItem="ucg-6f-lXO" secondAttribute="top" type="default" id="E5p-rt-EaT"/>
                             <constraint firstItem="KZs-ah-KKX" firstAttribute="top" secondItem="AuD-KW-Ad3" secondAttribute="top" constant="80" id="JxS-7h-dQV"/>
                             <constraint firstItem="IoN-fJ-DZQ" firstAttribute="top" secondItem="AuD-KW-Ad3" secondAttribute="top" constant="55" id="MqN-c3-GCX"/>
                             <constraint firstItem="ZuT-gl-ZZb" firstAttribute="top" secondItem="wIc-7w-olR" secondAttribute="top" type="default" id="NKV-ma-lyj"/>
-                            <constraint firstItem="ucg-6f-lXO" firstAttribute="top" secondItem="AuD-KW-Ad3" secondAttribute="top" constant="180" id="Njq-Mv-tkq"/>
                             <constraint firstItem="aNF-HE-tHA" firstAttribute="top" secondItem="5eA-nZ-bzx" secondAttribute="top" type="default" id="U0X-OT-zWW"/>
                             <constraint firstItem="k8c-tu-A7s" firstAttribute="baseline" secondItem="IoN-fJ-DZQ" secondAttribute="baseline" type="default" id="XjG-WO-qty"/>
-                            <constraint firstItem="IoN-fJ-DZQ" firstAttribute="leading" secondItem="AuD-KW-Ad3" secondAttribute="leading" constant="124" id="YZE-zJ-cQx"/>
                             <constraint firstAttribute="trailing" secondItem="MIv-wK-MEw" secondAttribute="trailing" constant="79" id="Ym5-tP-Efs"/>
                             <constraint firstItem="1cn-29-ywC" firstAttribute="baseline" secondItem="KZs-ah-KKX" secondAttribute="baseline" type="default" id="ZdB-Jm-vUm"/>
+                            <constraint firstItem="tHQ-PG-lNv" firstAttribute="trailing" secondItem="k8c-tu-A7s" secondAttribute="trailing" type="default" id="a98-Yf-hb5"/>
                             <constraint firstItem="fOx-5y-zGg" firstAttribute="baseline" secondItem="ucg-6f-lXO" secondAttribute="baseline" type="default" id="aJq-jf-5wf"/>
+                            <constraint firstItem="tHQ-PG-lNv" firstAttribute="top" secondItem="fOx-5y-zGg" secondAttribute="top" type="default" id="cm9-5e-sd7"/>
                             <constraint firstAttribute="trailing" secondItem="fOx-5y-zGg" secondAttribute="trailing" constant="33" id="dnl-mO-CMm"/>
                             <constraint firstAttribute="trailing" secondItem="aNF-HE-tHA" secondAttribute="trailing" constant="44" id="fGY-AI-hZF"/>
                             <constraint firstItem="5eA-nZ-bzx" firstAttribute="leading" secondItem="AuD-KW-Ad3" secondAttribute="leading" constant="54" id="iL8-1Q-SeJ"/>
-                            <constraint firstAttribute="trailing" secondItem="ZuT-gl-ZZb" secondAttribute="trailing" constant="64" id="jSS-hP-Mmw"/>
+                            <constraint firstItem="IoN-fJ-DZQ" firstAttribute="leading" secondItem="AuD-KW-Ad3" secondAttribute="leading" constant="133" id="ktu-mK-GbG"/>
                             <constraint firstItem="aNF-HE-tHA" firstAttribute="baseline" secondItem="5eA-nZ-bzx" secondAttribute="baseline" type="default" id="nE8-c5-haN"/>
-                            <constraint firstAttribute="trailing" secondItem="k8c-tu-A7s" secondAttribute="trailing" constant="114" id="ol0-j7-KF3"/>
                             <constraint firstItem="wIc-7w-olR" firstAttribute="leading" secondItem="AuD-KW-Ad3" secondAttribute="leading" constant="69" id="pAf-yi-QmB"/>
+                            <constraint firstItem="ZuT-gl-ZZb" firstAttribute="leading" secondItem="tHQ-PG-lNv" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="t64-6f-c0a"/>
                             <constraint firstItem="wIc-7w-olR" firstAttribute="top" secondItem="AuD-KW-Ad3" secondAttribute="top" constant="130" id="u0q-P6-eQm"/>
+                            <constraint firstItem="KZs-ah-KKX" firstAttribute="leading" secondItem="AuD-KW-Ad3" secondAttribute="leading" constant="104" id="uLv-8B-7aR"/>
                             <constraint firstItem="k8c-tu-A7s" firstAttribute="top" secondItem="IoN-fJ-DZQ" secondAttribute="top" type="default" id="uM4-Nu-22W"/>
                             <constraint firstItem="MIv-wK-MEw" firstAttribute="top" secondItem="K7W-9l-L7w" secondAttribute="top" type="default" id="uTy-Um-uQc"/>
                             <constraint firstItem="K7W-9l-L7w" firstAttribute="top" secondItem="AuD-KW-Ad3" secondAttribute="top" constant="105" id="vcq-Gd-hlU"/>
                             <constraint firstItem="1cn-29-ywC" firstAttribute="leading" secondItem="IoN-fJ-DZQ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="wEh-UF-MUW"/>
+                            <constraint firstItem="tHQ-PG-lNv" firstAttribute="top" secondItem="AuD-KW-Ad3" secondAttribute="top" constant="180" id="wpC-kI-OcR"/>
                             <constraint firstItem="ZuT-gl-ZZb" firstAttribute="baseline" secondItem="wIc-7w-olR" secondAttribute="baseline" type="default" id="yEG-eM-O9h"/>
                         </constraints>
                     </view>
@@ -1335,7 +1356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nwb-l1-M6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4937" y="392"/>
+            <point key="canvasLocation" x="-2625" y="1504"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CfJ-GM-7hi">
@@ -1459,83 +1480,6 @@
         <image name="blackKey.png" width="32" height="140"/>
         <image name="whiteKey.png" width="38" height="178"/>
     </resources>
-    <classes>
-        <class className="BetterMidiViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BetterMidiViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handleKeyDown:"/>
-                <relationship kind="action" name="handleKeyUp:"/>
-            </relationships>
-        </class>
-        <class className="GyrophoneMIDIViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GyrophoneMIDIViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="velocityChanged:"/>
-                <relationship kind="outlet" name="aSharpStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="aStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cSharpStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dSharpStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="eStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fSharpStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gSharpStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="velocitySlider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="MIDIPianoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MIDIPianoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="VelocityChanged:"/>
-                <relationship kind="action" name="noteOff:"/>
-                <relationship kind="action" name="noteOn:"/>
-                <relationship kind="outlet" name="leftOctave" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rightOctave" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="velocityControl" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="MidiViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MidiViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handleKeyDown:"/>
-                <relationship kind="action" name="handleKeyUp:"/>
-            </relationships>
-        </class>
-        <class className="MotionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MotionViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="accX" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="accY" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="accZ" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gyroX" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gyroY" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gyroZ" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MusicDiscViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MusicDiscViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sliderValueChanged:"/>
-                <relationship kind="outlet" name="aStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="eStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gStatusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="velocitySlider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RawAccelerometerMidiViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RawAccelerometerMidiViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
