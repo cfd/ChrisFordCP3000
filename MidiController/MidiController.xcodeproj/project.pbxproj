@@ -22,6 +22,8 @@
 		8374BDF317BB57E400B050F8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8374BDF217BB57E400B050F8 /* Default@2x.png */; };
 		8374BDF517BB57E400B050F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8374BDF417BB57E400B050F8 /* Default-568h@2x.png */; };
 		8391211417C351A300978723 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391211317C351A300978723 /* CoreAudio.framework */; };
+		8393DE5317EB520200433F28 /* cubeBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 8393DE5217EB520200433F28 /* cubeBG.png */; };
+		8393DE5917EB586900433F28 /* cubeBG4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8393DE5817EB586900433F28 /* cubeBG4.png */; };
 		83A9DCE217CE0142001DC321 /* RawAccelerometerMidiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A9DCE117CE0142001DC321 /* RawAccelerometerMidiViewController.m */; };
 		83AFDB5017D8D8DE00249385 /* MIDIPianoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFDB4F17D8D8DE00249385 /* MIDIPianoViewController.m */; };
 		83AFDB5417D8E44C00249385 /* whiteKey.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AFDB5317D8E44C00249385 /* whiteKey.png */; };
@@ -58,6 +60,8 @@
 		8374BDF217BB57E400B050F8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8374BDF417BB57E400B050F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8391211317C351A300978723 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		8393DE5217EB520200433F28 /* cubeBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cubeBG.png; sourceTree = "<group>"; };
+		8393DE5817EB586900433F28 /* cubeBG4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cubeBG4.png; sourceTree = "<group>"; };
 		83A9DCE017CE0142001DC321 /* RawAccelerometerMidiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawAccelerometerMidiViewController.h; sourceTree = "<group>"; };
 		83A9DCE117CE0142001DC321 /* RawAccelerometerMidiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawAccelerometerMidiViewController.m; sourceTree = "<group>"; };
 		83AFDB4E17D8D8DE00249385 /* MIDIPianoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDIPianoViewController.h; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		8374BDE517BB57E400B050F8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8393DE5817EB586900433F28 /* cubeBG4.png */,
+				8393DE5217EB520200433F28 /* cubeBG.png */,
 				83CD774E17E9F6E4004A5113 /* CubeButton.png */,
 				836E308517D8E6F800DE2543 /* blackKey.png */,
 				83AFDB5317D8E44C00249385 /* whiteKey.png */,
@@ -227,8 +233,10 @@
 				8374BDF317BB57E400B050F8 /* Default@2x.png in Resources */,
 				8374BDF517BB57E400B050F8 /* Default-568h@2x.png in Resources */,
 				83DB8C5617C0B57700FAB4DE /* Storyboard.storyboard in Resources */,
+				8393DE5317EB520200433F28 /* cubeBG.png in Resources */,
 				83AFDB5417D8E44C00249385 /* whiteKey.png in Resources */,
 				836E308617D8E6F800DE2543 /* blackKey.png in Resources */,
+				8393DE5917EB586900433F28 /* cubeBG4.png in Resources */,
 				83E2C53917E8735C004B9DEC /* iPadStoryboard.storyboard in Resources */,
 				83CD774F17E9F6E4004A5113 /* CubeButton.png in Resources */,
 			);
@@ -331,7 +339,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MidiController/MidiController-Prefix.pch";
 				INFOPLIST_FILE = "MidiController/MidiController-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -344,7 +352,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MidiController/MidiController-Prefix.pch";
 				INFOPLIST_FILE = "MidiController/MidiController-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

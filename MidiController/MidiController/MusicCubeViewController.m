@@ -202,9 +202,87 @@ static void CheckError(OSStatus error, const char *operation) {
     buttonTwoPlaying = NO;
 }
 
--(IBAction)VelocityChanged:(id)sender{
+-(IBAction)velocityChanged:(id)sender{
     masterVelocity = roundf(velocityControl.value);
     NSLog(@"vel: %d", masterVelocity);
+}
+
+-(IBAction)octaveChanged:(id)sender{
+    
+    if(buttonOnePlaying){
+        switch (orientation) {
+            case 1:
+                [self sendNoteOffEvent:lowCMIDIConstant+10 velocity:masterVelocity];
+                break;
+            case 2:
+                [self sendNoteOffEvent:lowCMIDIConstant+0 velocity:masterVelocity];
+                break;
+            case 3:
+                [self sendNoteOffEvent:lowCMIDIConstant+6 velocity:masterVelocity];
+                break;
+            case 4:
+                [self sendNoteOffEvent:lowCMIDIConstant+2 velocity:masterVelocity];
+                break;
+            case 5:
+                [self sendNoteOffEvent:lowCMIDIConstant+8 velocity:masterVelocity];
+                break;
+            case 6:
+                [self sendNoteOffEvent:lowCMIDIConstant+4 velocity:masterVelocity];
+                break;
+        }
+        buttonOnePlaying = NO;
+    }
+    
+    if(buttonTwoPlaying){
+        switch (orientation) {
+            case 1:
+                [self sendNoteOffEvent:lowCMIDIConstant+11 velocity:masterVelocity];
+                break;
+            case 2:
+                [self sendNoteOffEvent:lowCMIDIConstant+1 velocity:masterVelocity];
+                break;
+            case 3:
+                [self sendNoteOffEvent:lowCMIDIConstant+7 velocity:masterVelocity];
+                break;
+            case 4:
+                [self sendNoteOffEvent:lowCMIDIConstant+3 velocity:masterVelocity];
+                break;
+            case 5:
+                [self sendNoteOffEvent:lowCMIDIConstant+9 velocity:masterVelocity];
+                break;
+            case 6:
+                [self sendNoteOffEvent:lowCMIDIConstant+5 velocity:masterVelocity];
+                break;
+        }
+        buttonTwoPlaying = NO;
+    }
+
+    
+    
+    NSString *selectedOctave = [octaveController titleForSegmentAtIndex:octaveController.selectedSegmentIndex];
+    if([selectedOctave isEqualToString:@"C0"]){
+        lowCMIDIConstant = 36;
+    }
+    else if([selectedOctave isEqualToString:@"C1"]){
+        lowCMIDIConstant = 48;
+    }
+    else if([selectedOctave isEqualToString:@"C2"]){
+        lowCMIDIConstant = 60;
+    }
+    else if([selectedOctave isEqualToString:@"C3"]){
+        lowCMIDIConstant = 72;
+    }
+    else if([selectedOctave isEqualToString:@"C4"]){
+        lowCMIDIConstant = 86;
+    }
+    else if([selectedOctave isEqualToString:@"C5"]){
+        lowCMIDIConstant = 98;
+    }
+    else if([selectedOctave isEqualToString:@"C6"]){
+        lowCMIDIConstant = 110;
+    }
+    
+    
 }
 
 
@@ -307,6 +385,7 @@ static void CheckError(OSStatus error, const char *operation) {
                          }
                          [buttonOne setTitle:@"G # / A♭" forState:UIControlStateNormal];
                          [buttonTwo setTitle:@"A" forState:UIControlStateNormal];
+                         
                          buttonOneOffset = 8;
                          buttonTwoOffset = 9;
                      }
@@ -320,6 +399,7 @@ static void CheckError(OSStatus error, const char *operation) {
                              [self orientationChanged:prevOrientation];
                              prevOrientation = 6;
                          }
+                         
                          [buttonOne setTitle:@"E" forState:UIControlStateNormal];
                          [buttonTwo setTitle:@"F" forState:UIControlStateNormal];
                          buttonOneOffset = 4;
@@ -417,6 +497,9 @@ static void CheckError(OSStatus error, const char *operation) {
     [self configurePort];
     [self search];
     
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"cubeBG4.png"]];
+    self.view.backgroundColor = background;
+    
     
     lowCMIDIConstant = 60;
     buttonOneOffset = 0;
@@ -435,12 +518,15 @@ static void CheckError(OSStatus error, const char *operation) {
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    //masterVelocity = roundf(velocityControl.value);
-    masterVelocity = 127;
+    masterVelocity = roundf(velocityControl.value);
     NSLog(@"vel: %d", masterVelocity);
     
-    [self startDeviceMotion];
+    //octaveController.
     
+    [self startDeviceMotion];
+    //UIImage *image = [UIImage imageNamed:@"CubeButton.png"];
+    //[buttonOne setBackgroundImage:image forState:UIControlStateNormal];
+    //[buttonOne setAlpha:0.5];
     
 }
 

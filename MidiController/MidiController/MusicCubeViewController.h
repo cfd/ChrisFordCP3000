@@ -25,6 +25,7 @@
     IBOutlet UILabel *rightOctave;
     IBOutlet UIButton *buttonOne;
     IBOutlet UIButton *buttonTwo;
+    IBOutlet UISegmentedControl *octaveController;
     
     //int firstOctave;
     int lowCMIDIConstant;
@@ -68,8 +69,8 @@
 -(IBAction)noteOnButtonTwo:(id)sender;
 -(IBAction)noteOffButtonTwo:(id)sender;
 
-
--(IBAction)VelocityChanged:(id)sender;
+-(IBAction)octaveChanged:(id)sender;
+-(IBAction)velocityChanged:(id)sender;
 
 
 
