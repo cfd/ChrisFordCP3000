@@ -415,7 +415,90 @@ static void CheckError(OSStatus error, const char *operation) {
              
              
          });
+         
+         CMRotationRate rotRate = data.rotationRate;
+         dispatch_async(dispatch_get_main_queue(), ^{
+             
+             int rotX = roundf(rotRate.x);
+             int rotY = roundf(rotRate.y);
+             int rotZ = roundf(rotRate.z);
+             
+             if(orientation == 1 || orientation == 2){
+                 switch (rotX) {
+                     case 5:
+                         if(!bent){
+                             [self sendPitchBendEvent:0 lsb:0];
+                             bent = YES;
+                         }
+                         break;
+                     case -5:
+                         if(!bent){
+                             [self sendPitchBendEvent:127 lsb:127];
+                             bent = YES;
+                         }
+                         break;
+                     case 0:
+                         if(bent){
+                             [self sendPitchBendEvent:64 lsb:64];
+                             bent = NO;
+                         }
+                         break;
+                 }
+             }
+             
+             if(orientation == 3 || orientation == 4){
+                 switch (rotY) {
+                     case 5:
+                         if(!bent){
+                             [self sendPitchBendEvent:0 lsb:0];
+                             bent = YES;
+                         }
+                         break;
+                     case -5:
+                         if(!bent){
+                             [self sendPitchBendEvent:127 lsb:127];
+                             bent = YES;
+                         }
+                         break;
+                     case 0:
+                         if(bent){
+                             [self sendPitchBendEvent:64 lsb:64];
+                             bent = NO;
+                         }
+                         break;
+                 }
+                 
+                 
+             }
+             
+             if(orientation == 5 || orientation == 6){
+                 switch (rotZ) {
+                     case 5:
+                         if(!bent){
+                             [self sendPitchBendEvent:0 lsb:0];
+                             bent = YES;
+                         }
+                         break;
+                     case -5:
+                         if(!bent){
+                             [self sendPitchBendEvent:127 lsb:127];
+                             bent = YES;
+                         }
+                         break;
+                     case 0:
+                         if(bent){
+                             [self sendPitchBendEvent:64 lsb:64];
+                             bent = NO;
+                         }
+                         break;
+                 }
+             }
+             
+             
+             });
      }];
+    
+    
 }
 
 -(void)orientationChanged:(int) prev{

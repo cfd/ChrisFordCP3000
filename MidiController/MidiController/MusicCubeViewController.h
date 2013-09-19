@@ -21,19 +21,16 @@
     
     
     IBOutlet UISlider *velocityControl;
-    IBOutlet UILabel *leftOctave;
-    IBOutlet UILabel *rightOctave;
+
     IBOutlet UIButton *buttonOne;
     IBOutlet UIButton *buttonTwo;
     IBOutlet UISegmentedControl *octaveController;
     
-    //int firstOctave;
     int lowCMIDIConstant;
     int buttonOneOffset;
     int buttonTwoOffset;
     int masterVelocity;
-    //BOOL bent;
-    //BOOL moving;
+    BOOL bent;
     
     int prevOrientation;
     int orientation;
