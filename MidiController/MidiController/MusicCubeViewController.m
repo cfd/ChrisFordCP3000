@@ -261,25 +261,25 @@ static void CheckError(OSStatus error, const char *operation) {
     
     NSString *selectedOctave = [octaveController titleForSegmentAtIndex:octaveController.selectedSegmentIndex];
     if([selectedOctave isEqualToString:@"C0"]){
-        lowCMIDIConstant = 36;
+        lowCMIDIConstant = 24;
     }
     else if([selectedOctave isEqualToString:@"C1"]){
-        lowCMIDIConstant = 48;
+        lowCMIDIConstant = 36;
     }
     else if([selectedOctave isEqualToString:@"C2"]){
-        lowCMIDIConstant = 60;
+        lowCMIDIConstant = 48;
     }
     else if([selectedOctave isEqualToString:@"C3"]){
-        lowCMIDIConstant = 72;
+        lowCMIDIConstant = 60;
     }
     else if([selectedOctave isEqualToString:@"C4"]){
-        lowCMIDIConstant = 86;
+        lowCMIDIConstant = 72;
     }
     else if([selectedOctave isEqualToString:@"C5"]){
-        lowCMIDIConstant = 98;
+        lowCMIDIConstant = 84;
     }
     else if([selectedOctave isEqualToString:@"C6"]){
-        lowCMIDIConstant = 110;
+        lowCMIDIConstant = 96;
     }
     
     
@@ -425,19 +425,19 @@ static void CheckError(OSStatus error, const char *operation) {
              
              if(orientation == 1 || orientation == 2){
                  switch (rotX) {
-                     case 5:
+                     case 10:
                          if(!bent){
                              [self sendPitchBendEvent:0 lsb:0];
                              bent = YES;
                          }
                          break;
-                     case -5:
+                     case -10:
                          if(!bent){
                              [self sendPitchBendEvent:127 lsb:127];
                              bent = YES;
                          }
                          break;
-                     case 0:
+                     case 6:
                          if(bent){
                              [self sendPitchBendEvent:64 lsb:64];
                              bent = NO;
@@ -448,19 +448,19 @@ static void CheckError(OSStatus error, const char *operation) {
              
              if(orientation == 3 || orientation == 4){
                  switch (rotY) {
-                     case 5:
+                     case 10:
                          if(!bent){
                              [self sendPitchBendEvent:0 lsb:0];
                              bent = YES;
                          }
                          break;
-                     case -5:
+                     case -10:
                          if(!bent){
                              [self sendPitchBendEvent:127 lsb:127];
                              bent = YES;
                          }
                          break;
-                     case 0:
+                     case 6:
                          if(bent){
                              [self sendPitchBendEvent:64 lsb:64];
                              bent = NO;
@@ -473,19 +473,19 @@ static void CheckError(OSStatus error, const char *operation) {
              
              if(orientation == 5 || orientation == 6){
                  switch (rotZ) {
-                     case 5:
+                     case 10:
                          if(!bent){
                              [self sendPitchBendEvent:0 lsb:0];
                              bent = YES;
                          }
                          break;
-                     case -5:
+                     case -10:
                          if(!bent){
                              [self sendPitchBendEvent:127 lsb:127];
                              bent = YES;
                          }
                          break;
-                     case 0:
+                     case 6:
                          if(bent){
                              [self sendPitchBendEvent:64 lsb:64];
                              bent = NO;
